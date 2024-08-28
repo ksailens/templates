@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <table width="100%" style="border-collapse:collapse" cellpadding="0" cellspacing="0"
+           border="0" align="left" valign="top">
+      <tbody>
+      <tr>
+        <td style="width:185px;margin:0;padding:0" align="left">
+          <a href="https://travel.alfabank.ru/" target="_blank" style="text-decoration:underline">
+            <img alt="Альфа-Банк" src="https://www.aviakassa.com/cms/image/static/alfa-email/logo.svg" width="23" height="35" style="display:block;outline:none;border:none;text-decoration:none"></a>
+        </td>
+        <td align="left" colspan="2">
+          <p style="font-family:styrene;font-size:18px;font-weight:bold;line-height:21.6px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">
+            Маршрутная квитанция<span style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Itinerary receipt</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+        <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+        <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table style="height:min-content;padding-top:16px" cellpadding="0"
+                 cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+              <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Номер заказа<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Billing number</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ order.billing_number }}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+        <td valign="top">
+          <table style="height:min-content;padding-top:16px" cellpadding="0"
+                 cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+              <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Дата выписки<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Ticket issue date</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="display:flex;align-items:center">
+                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ order.date_tkt_ru | date("d.m.Y") }}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+        <td valign="top">
+          <table style="height:min-content;padding-top:16px" cellpadding="0"
+                 cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+              <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Бронирование<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Reservation number*</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="display:flex;align-items:center">
+                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ ticket.vnd_locators }}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table style="width:158px;height:min-content;padding-top:16px" cellpadding="0"
+                 cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+              <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Данные брони<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Booking ref</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="display:flex;align-items:center">
+                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ ticket.locator }}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+        <td valign="top">
+          <table style="width:158px;height:min-content;padding-top:16px" cellpadding="0"
+                 cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+              <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Выдан от<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Issued by</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td style="display:flex;align-items:center">
+                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ ticket.carrier_name_ru | upper }} ({{ ticket.carrier_code | upper }})</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+        <td valign="top">
+          <table style="width:158px;height:min-content;padding-top:16px" cellpadding="0"
+                 cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+              <td style="display:flex;align-items:center">
+                <p style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">*код брони для онлайн-регистрации и других сервисов авиакомпании</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+        <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+        <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+      </tr>
+      <tr>
+        <td style="height:18px"></td>
+      </tr>
+      </tbody>
+    </table>
+    <table width="100%" align="left" valign="bottom" style="border-collapse:collapse"
+           cellspacing="6" cellpadding="0" border="0">
+      <tbody>
+      <tr>
+        <td align="left">
+          <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+              <td align="left">
+                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Тариф<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Fare</span></p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+        <td align="right">
+          <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:right;margin:0;padding:0">{{ order.fare_sum |number_format(2, '.', ' ') }} {{ order.currency }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="height:14px"></td>
+      </tr>
+      <tr>
+        <td align="left">
+          <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Сборы<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Tax/Fee/Charge</span></p>
+        </td>
+        <td align="right">
+          <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:right;margin:0;padding:0">
+              {{ (order.service_fee_sum + order.tax_sum) |number_format(2, '.', ' ') }} {{ order.currency }}
+          </p>
+        </td>
+      </tr>
+      {% if additionalProductsSum > 0 %}
+        <tr>
+          <td style="height:14px"></td>
+        </tr>
+        <tr>
+          <td align="left">
+            <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Другие услуги<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Other services</span></p>
+          </td>
+          <td align="right" valign="bottom">
+            <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:right;margin:0;padding:0">{{ additionalProductsSum|number_format(2, '.', ' ') }} RUB</p>
+          </td>
+        </tr>
+      {% endif %}
+      {% if insurancesSum > 0 %}
+        <tr>
+          <td style="height:14px"></td>
+        </tr>
+        <tr>
+          <td align="left" style="padding-bottom:12px">
+            <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Страхование<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Insurance</span></p>
+          </td>
+          <td align="right">
+            <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:right;margin:0;padding:0">{{ insurancesSum|number_format(2, '.', ' ') }} RUB</p>
+          </td>
+        </tr>
+      {% endif %}
+      {% if aexSum > 0 %}
+        <tr>
+          <td style="height:14px"></td>
+        </tr>
+        <tr>
+          <td align="left" style="padding-bottom:12px">
+            <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Аэроэкспресс<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Aeroexpress</span></p>
+          </td>
+          <td align="right">
+            <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:right;margin:0;padding:0">{{ aexSum|number_format(2, '.', ' ') }} RUB</p>
+          </td>
+        </tr>
+      {% endif %}
+      {% if promoSum > 0 %}
+        <tr>
+          <td style="height:14px"></td>
+        </tr>
+        <tr>
+          <td align="left">
+            <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Скидка по промокоду<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Discount on promotional codes</span></p>
+          </td>
+          <td align="right">
+            <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:right;margin:0;padding:0">{{ promoSum|number_format(2, '.', ' ') }} RUB</p>
+          </td>
+        </tr>
+      {% endif %}
+      <tr>
+        <td style="padding-top:12px;border-bottom:1px solid lightgray"></td>
+        <td style="padding-top:12px;border-bottom:1px solid lightgray"></td>
+      </tr>
+      <tr>
+        <td style="height:18px"></td>
+      </tr>
+      </tbody>
+    </table>
+    <table width="100%" style="border-collapse:collapse" cellspacing="6" cellpadding="0"
+           border="0" align="left" valign="top">
+      <tbody>
+      <tr>
+        <td align="left">
+          <table style="width:156px" cellpadding="0" cellspacing="0" border="0"
+                 align="left" valign="top">
+            <tbody>
+            <tr>
+              <td align="left">
+                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Итоговая стоимость перевозки</p>
+                <p style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Total cost of transportation</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+        <td align="right">
+          <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ total|number_format(2, '.', ' ') }} RUB</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div style="position:absolute;bottom:30px;left:30px">
+      <span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">travel.alfabank.ru</span>
+    </div>
+  </body>
+</html>

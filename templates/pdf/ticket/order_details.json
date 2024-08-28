@@ -1,0 +1,48 @@
+{
+  "additionalProductsSum": 0,
+  "aexSum": 0,
+  "exchange": null,
+  "insurancesSum": 0,
+  "order": {
+    "amount_total_sum": 6069,
+    "billing_number": 12517122731,
+    "book_trip": {},
+    "created": "2024-06-03 11:41:06",
+    "currency": "RUB",
+    "date_tkt_en": "",
+    "date_tkt_ru": "",
+    "device_type": {},
+    "fare_sum": 3235,
+    "id": 402258,
+    "ip": "10.233.79.0",
+    "marker": "kqrzdn5512m8",
+    "parent_id": null,
+    "partner_id": 223,
+    "pos": "10.233.79.0",
+    "provider_name": "TUA",
+    "search_trip": {},
+    "service_fee_sum": 1188,
+    "service_time_limit": "2024-06-10 11:36:03",
+    "status_id": 8,
+    "status_title": "Возвращено",
+    "status": "Refunded",
+    "tax_sum": 1646,
+    "type": null,
+    "updated": "2024-06-03 12:16:07",
+    "user_id": 480030,
+    "vtrip_provider_combination_id": null,
+    "partner": {
+      "code": "AKV4"
+    },
+    "partnerPhone": null
+  },
+  "otherTax": 0,
+  "promoSum": 0,
+  "ticket": [],
+  "total": 6069,
+  "vatTaxItinerary": {
+    "coefficient": 0.10714285714285714,
+    "is_show": false,
+    "percent": 12
+  }
+}

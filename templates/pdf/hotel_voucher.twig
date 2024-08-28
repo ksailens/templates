@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <table style="width:100%;border-bottom:1px solid lightgray;padding-bottom:22px"
+               valign="middle" cellpadding="0" cellspacing="0" border="0" align="left">
+            <tbody>
+            <tr style="height:35px;align-items:center">
+                <td style="margin:0;padding:0" align="left"><a href="https://travel.alfabank.ru/" target="_blank" style="text-decoration:underline"><img alt="Альфа-Банк" src="https://www.aviakassa.com/cms/image/static/alfa-email/logo.svg" width="23" height="35" style="display:block;outline:none;border:none;text-decoration:none"></a>
+                </td>
+                <td valign="middle" align="right" style="padding-right:80px">
+                    <table style="margin:auto 0;width:min-content" align="right" cellpadding="0"
+                           cellspacing="0" border="0" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:styrene;font-size:18px;font-weight:bold;line-height:21.6px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Электронный ваучер<span style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/E-voucher</span></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table width="100%" style="border-collapse:collapse" border="0" align="left" valign="top">
+            <colgroup>
+                <col span="1" style="width:33%">
+                <col span="1" style="width:33%">
+                <col span="1" style="width:33%">
+            </colgroup>
+            <tbody style="width:100%">
+            <tr>
+                <td valign="top">
+                    <table style="margin-right:28px;margin-top:11px;min-width:158px" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Заезд<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Check-in</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ room.check_in_date }} <span style="font-family:styrene;font-size:14px;font-weight:normal;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0;margin-left:6px">{{ ticket.check_in_time | date("H:i") }}</span></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table style="margin-right:28px;margin-top:11px;min-width:158px" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Бронирование<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Reservation</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ order.billing_number }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table style="margin-right:0;margin-top:11px;min-width:unset" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">ID</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ ticket.hotel_reservation_number }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <table style="margin-right:28px;margin-top:11px;min-width:158px" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Выезд<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Check-out</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ room.check_out_date }} <span style="font-family:styrene;font-size:14px;font-weight:normal;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0;margin-left:6px">{{ ticket.check_out_time | date("H:i") }}</span></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table style="margin-right:0;margin-top:11px;min-width:unset" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Дата выписки<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Voucher issue date</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ order.created | split(" ") | first }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+            </tr>
+            <tr>
+                <td style="height:18px"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top" style="border-collapse: collapse">
+                        <tbody>
+                        <tr>
+                            <td style="padding-right:8px">
+                                <table style="border-collapse: collapse;{% if hotel.name | length > 40 %}width: 250px;{% endif %}" cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <p style="font-family:styrene;font-size:12px;font-weight:bold;line-height:14px;color:#000000;text-align:left;margin:0;padding:0;margin-right:9px">
+                                                {{ hotel.name }}
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>
+                                <table style="border-collapse: collapse" cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                    <tbody>
+                                    <tr>
+                                        <td valign="top">
+                                            {% if hotel.stars > 0 %}
+                                                {% for i in range(1, hotel.stars) %}
+                                                    <img alt="star" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxOCAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguMDgxNTUgMS4xMzI3NEM4LjQyODYzIDAuMzI2Nzc4IDkuNTcxMzcgMC4zMjY3NzkgOS45MTg0NSAxLjEzMjc0TDExLjQ2OSA0LjczMzE2QzExLjYxMzcgNS4wNjkzMyAxMS45MzA2IDUuMjk5NTYgMTIuMjk1MSA1LjMzMzM2TDE2LjE5ODQgNS42OTUzOEMxNy4wNzIyIDUuNzc2NDIgMTcuNDI1MyA2Ljg2MzIzIDE2Ljc2NiA3LjQ0MjM5TDEzLjgyMSAxMC4wMjk2QzEzLjU0NiAxMC4yNzEyIDEzLjQyNDkgMTAuNjQzNyAxMy41MDU0IDExLjAwMDdMMTQuMzY3MyAxNC44MjQ5QzE0LjU2MDIgMTUuNjgwOSAxMy42MzU3IDE2LjM1MjYgMTIuODgxMiAxNS45MDQ2TDkuNTEwNTYgMTMuOTAzMkM5LjE5NTg0IDEzLjcxNjMgOC44MDQxNiAxMy43MTYzIDguNDg5NDQgMTMuOTAzMkw1LjExODc5IDE1LjkwNDZDNC4zNjQyNiAxNi4zNTI2IDMuNDM5NzYgMTUuNjgwOSAzLjYzMjcgMTQuODI0OUw0LjQ5NDU5IDExLjAwMDdDNC41NzUwNiAxMC42NDM3IDQuNDU0MDMgMTAuMjcxMiA0LjE3OTA0IDEwLjAyOTZMMS4yMzM5NyA3LjQ0MjM4QzAuNTc0NzEzIDYuODYzMjMgMC45Mjc4NCA1Ljc3NjQyIDEuODAxNjEgNS42OTUzOEw1LjcwNDk0IDUuMzMzMzZDNi4wNjk0IDUuMjk5NTYgNi4zODYyNyA1LjA2OTMzIDYuNTMxMDUgNC43MzMxNkw4LjA4MTU1IDEuMTMyNzRaIiBmaWxsPSIjRUYzMTI0Ii8+Cjwvc3ZnPgo=" width="20" height="20" style="display:block;outline:none;border:none;text-decoration:none">
+                                                {% endfor %}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td align="right">
+                    <p style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#000000;text-align:left;margin:0;padding:0">{{ hotel.address }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 21px"></td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <table style="width: 162px;" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Гости<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Guests names</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">
+                                    {% if guests is defined %}
+                                        {% for guest in guests %}
+                                            {{ guest.last_name | capitalize }} {{ guest.first_name | capitalize }}
+                                            <br/>
+                                        {% endfor %}
+                                    {% endif %}
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table style="width:187px;" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Тип размещения<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Accommodation</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:styrene;text-align:left;font-weight:bold;font-size:14px;line-height:16.8px;color:#000000;margin:0;padding:0;width:158px">{{ room.name }}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:4px;max-width:90px">
+                                <p style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">
+                                    {{ room.adult }} взрослы{% if room.adult == 1 %}й{% else %}х{% endif %}/adult{% if room.adult != 1 %}s{% endif %}<br>
+                                    {% if room.children != 0 %}
+                                        {{ room.children }} {% if room.children == 1 %}ребёнок{% else %}ребёнка{% endif %}/children{% if room.children != 1 %}s{% endif %}
+                                    {% endif %}
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:styrene;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Питание<span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Meal plan</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><span style="font-family:styrene;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ room.meal_code }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:4px;max-width:90px"><span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">{{ room.meal_type }}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+            </tr>
+            <tr>
+                <td style="height:18px"></td>
+            </tr>
+            {% set len = min(2, hotel.facilities | length - 1)%}
+            {% for i in range(0, len // 3 ) %}
+                <tr>
+                    {% for j in range(0, 2) %}
+                        <td valign="top" style="padding-bottom:10px">
+                            {% set facility = hotel.facilities[j + (i * 3)] %}
+                            <table style="width:158px;max-width:158px"
+                                   cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                <tbody>
+                                <tr>
+                                    <td style="padding-bottom:8px">
+                                        <p style="font-family:styrene;text-align:left;font-weight:normal;font-size:10px;line-height:12px;color:#EF3124;margin:0;padding:0">{{ facility.name }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="font-family:styrene;text-align:left;font-size:8px;font-weight:normal;line-height:10px;color:#000000;margin:0;padding:0">
+                                            {% for item in facility.list %}
+                                                {{ item }}
+                                                <br />
+                                            {% endfor %}
+                                        </p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            <tr>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+            </tr>
+            <tr>
+                <td style="height:18px"></td>
+            </tr>
+            <tr>
+                <td valign="top" colspan="1">
+                    <p style="font-family:styrene;text-align:left;font-weight:bold;font-size:14px;line-height:16.8px;color:#000000;margin:0;padding:0">Примечания</p>
+                </td>
+                <td colspan="2" style="padding-bottom:12px">
+                    <p style="font-family:styrene;text-align:left;font-weight:normal;font-size:12px;line-height:14px;color:#000000;margin:0;padding:0">
+                        <span style="font-family:styrene;font-size:12px;font-weight:bold;line-height:14px;color:#000000;text-align:left;margin:0;padding:0">GPS </span>{{ hotel.location.latitude }} {{ hotel.location.longitude }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width:180px;" cellpadding="0" cellspacing="0"
+                           border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <p style="font-family:styrene;text-align:left;font-size:8px;font-weight:normal;line-height:10px;color:#000000;margin:0;padding:0">{{ hotel.description }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top" colspan="2">
+                    <table style="border-collapse:collapse" width="100%" cellpadding="0" cellspacing="0"
+                           border="0" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left">
+                                <img src="https://static-maps.yandex.ru/1.x/?l=map&z=17&size=400,300&pt={{ hotel.location.longitude }},{{ hotel.location.latitude }},pm2rdm"
+                                     width="182px" alt="" style="filter:grayscale(1)">
+                            </td>
+
+                            <td align="right">
+                                <img src="https://static-maps.yandex.ru/1.x/?ll=128.473881,50.921287&z=8&l=map&size=300,295&pt={{ hotel.location.longitude }},{{ hotel.location.latitude }},pm2rdm"
+                                     width="140px" alt="" style="filter:grayscale(1)">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div style="position:absolute;bottom:30px;left:30px">
+            <span style="font-family:styrene;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">travel.alfabank.ru</span>
+        </div>
+    </body>
+</html>

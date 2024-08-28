@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="date=no">
+        <meta name="format-detection" content="email=no">
+        <link rel="stylesheet" type="text/css" href="https://www.aviakassa.com/cms/image/static/alfa-email/fonts.css" media="all" />
+        <title>Подтверждение бронирования отеля</title>
+        <style type="text/css">
+            .normal-client {
+                min-width: unset !important;
+            }
+            a[x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: none !important;
+                font-size: inherit !important;
+                font-family: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+            }
+        </style>
+    </head>
+    <body style="width:100%;margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%">
+        <table width="100%" height="100%" bgcolor="#F3F4F5" cellpadding="0" cellspacing="0"
+           border="0" align="left" valign="top">
+        <tbody>
+        <tr>
+            <td align="center" valign="top">
+                <table width="100%" align="center" cellpadding="0" cellspacing="0" style="padding-top:20px"
+                       border="0" valign="top">
+                    <tbody></tbody>
+                </table>
+                <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div style="display:none;max-height:0;overflow:hidden">Документы для размещения в отеле {{ ticket.hotel.name }} в письме</div>
+                            <div style="display:none;max-height:0;overflow:hidden">&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;</div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table style="width:100%;background-color:rgb(255, 255, 255);border-collapse:collapse;border-radius:6px;margin-top:20px;max-width:600px"
+                       align="center" cellpadding="0" cellspacing="0" border="0" valign="top">
+                    <tbody>
+                    <tr>
+                        <td align="center" style="padding:24px"><a href="https://travel.alfabank.ru/" target="_blank" style="text-decoration:underline">
+                                <img alt="Альфа-Банк" src="https://www.aviakassa.com/cms/image/static/alfa-email/logo.png" width="28" height="42" style="display:block;outline:none;border:none;text-decoration:none">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img alt="alfabank-hero-image" src="https://www.aviakassa.com/cms/image/static/alfa-email/hotel-hero.jpg"
+                                 style="display:block;outline:none;border:none;text-decoration:none;width:100%;height:auto">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:16px 24px">
+                            <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0;pointer-events:none;">
+                                {{ greeting(user_first_name, lang) }}<br><br>
+                                Вы оплатили отель {{ order.billing_number }} от {{ order.created }} на сумму {{ order.amount_total_sum }}&nbsp;{{ order.currency }}.<br>
+                                Добавили во вложение к этому письму электронный ваучер.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 24px 16px 24px">
+                            <table style="width:100%;border-collapse: collapse;min-width:540px;" name="{{ ticket.hotel.name }}" subtitle="{{ ticket.hotel.address }}"
+                                   cellpadding="0" cellspacing="0" border="0"
+                                   align="left" valign="top">
+                                <tbody>
+                                <tr>
+                                    <td align="left" style="background:#EF3124;padding:8px 16px;border-radius:7px 7px 0 0"><span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:400;line-height:16.8px;color:#fff;text-align:left;margin:0;padding:0;white-space:nowrap">Детали бронирования</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 15px;display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:flex-start;border-left:1px solid rgba(0, 0, 0, 0.1);border-right:1px solid rgba(0, 0, 0, 0.1);padding-left:14px;padding-right:14px;padding-top:0;padding-bottom:0">
+                                        <table style="margin-right:28px;margin-top:11px;min-width:158px" cellpadding="0"
+                                               cellspacing="0" border="0" align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Заезд<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Check-in</span></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display:flex;align-items:center">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0">{{ room.check_in_date }}<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:400;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0;margin-left:6px">{{ room.check_in_time | date("H:i") }}</span></p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="margin-right:28px;margin-top:11px;min-width:158px" cellpadding="0"
+                                               cellspacing="0" border="0" align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Бронирование<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Reservation</span></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display:flex;align-items:center">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0;pointer-events:none;">{{ order.billing_number }}</p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="margin-right:0;margin-top:11px;min-width:unset" cellpadding="0"
+                                               cellspacing="0" border="0" align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">ID</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display:flex;align-items:center">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0;pointer-events:none;">{{ ticket.hotel_reservation_number }}</p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 15px;display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:flex-start;border-left:1px solid rgba(0, 0, 0, 0.1);border-right:1px solid rgba(0, 0, 0, 0.1);padding-left:14px;padding-right:14px;padding-top:0;padding-bottom:16px">
+                                        <table style="margin-right:28px;margin-top:11px;min-width:158px" cellpadding="0"
+                                               cellspacing="0" border="0" align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Выезд<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Check-out</span></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display:flex;align-items:center">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0">{{ room.check_out_date }} <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:400;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0;margin-left:6px">{{ room.check_out_time | date("H:i") }}</span>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="margin-right:0;margin-top:11px;min-width:unset" cellpadding="0"
+                                               cellspacing="0" border="0" align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Дата выписки<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Voucher issue date</span></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display:flex;align-items:center">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0">{{ order.created | split(" ") | first }}</p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="background-color:rgba(0, 0, 0, 0.1);height:1px;margin-left:auto;margin-right:auto;width:90%"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="middle" style="padding:20px 14px 0 14px;border-left:1px solid rgba(0, 0, 0, 0.1);border-right:1px solid rgba(0, 0, 0, 0.1);">
+                                        <table cellpadding="0" style="border-collapse: collapse;width: 100%"
+                                               cellspacing="0" border="0" align="left" valign="middle">
+                                            <tbody>
+                                            <tr style="display:flex;align-items:center;margin: auto auto auto 0;flex-wrap: wrap;gap:10px;">
+                                                <td colspan="2" align="left" style="margin-right: auto;" valign="middle">
+                                                    <table cellpadding="0" style="border-collapse: collapse;"
+                                                           cellspacing="0" border="0" align="left" valign="middle">
+                                                        <tbody>
+                                                        <tr style="display:flex;align-items:center;margin: auto auto auto 0;">
+                                                            <td style="max-width:250px;" valign="middle">
+                                                                <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:12px;font-weight:500;line-height:14px;color:#0b1f35;text-align:left;margin:auto 9px auto 0;padding:0;">
+                                                                    {{ ticket.hotel.name }}
+                                                                </span>
+                                                            </td>
+                                                            <td style="padding-left: 20px;height:min-content;margin: auto 0;" valign="middle">
+                                                                <table cellpadding="0" style="border-collapse: collapse;"
+                                                                       cellspacing="0" border="0" align="left" valign="middle">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        {% if ticket.hotel.stars is defined and ticket.hotel.stars > 0 %}
+                                                                            {% for star in range(1,ticket.hotel.stars) %}
+                                                                                <td valign="middle">
+                                                                                    <img alt="star" src="https://www.aviakassa.com/cms/image/static/alfa-email/star.png" width="20" height="20" style="display:block;outline:none;border:none;text-decoration:none;margin: auto 2px auto 0;">
+                                                                                </td>
+                                                                            {% endfor %}
+                                                                        {% endif %}
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td align="right" valign="middle" style="height:min-content;margin: auto 0">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#0b1f35;text-align:right;margin:0;padding:0;width:max-content;">{{ ticket.hotel.address }}</p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 15px;display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:flex-start;border-left:1px solid rgba(0, 0, 0, 0.1);border-bottom:1px solid rgba(0, 0, 0, 0.1);border-right:1px solid rgba(0, 0, 0, 0.1);border-radius:0 0 7px 7px;padding-left:14px;padding-right:14px;padding-top:10px;padding-bottom:16px">
+                                        <table style="margin-right:28px;margin-top:11px;min-width:158px" cellpadding="0"
+                                               cellspacing="0" border="0" align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Гости<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Guests names</span></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display:flex;align-items:center">
+                                                    <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                        <tbody>
+                                                        {% if passengers is defined %}
+                                                            {% for guest in passengers %}
+                                                            <tr>
+                                                                <td>
+                                                                    <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0">
+                                                                        {{ guest.last_name | capitalize }} {{ guest.first_name | capitalize }}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="margin-right:28px;margin-top:11px;min-width:158px" cellpadding="0"
+                                               cellspacing="0" border="0" align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Тип размещения<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Accommodation</span></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display:flex;align-items:center">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0;max-width:158px">{{ room.name }}</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-top:4px;max-width:90px">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0">
+                                                        {{ room.adult }} взрослы{% if room.adult == 1 %}й{% else %}х{% endif %}/adult
+                                                        {% if room.adult != 1 %}s{% endif %}<br>
+                                                        {% if room.children != 0 %}
+                                                            {{ room.children }}
+                                                            {% if room.children == 1 %}ребёнок{% else %}
+                                                                ребёнка
+                                                            {% endif %}/children{% if room.children != 1 %}s{% endif %}
+                                                        {% endif %}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="margin-right:0;margin-top:11px;min-width:unset" cellpadding="0"
+                                               cellspacing="0" border="0" align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Питание<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Meal plan</span></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display:flex;align-items:center">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;margin:0;padding:0">{{ room.meal_code }}</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-top:4px;max-width:90px">
+                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0">{{ room.meal_type }}</p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 24px 16px 24px">
+                            <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">
+                                Посмотреть полную информацию о бронировании можно в приложении Альфа-Банка ➔ сервис Альфа&nbsp;Путешествия ➔ раздел Мои&nbsp;заказы.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="display:block;padding:16px;">
+                            <div style="border-radius:8px;background-color:#EF3124;padding:12px 20px;width:200px;white-space:nowrap;margin:0 auto 10px auto;">
+                                <a href="https://trk.mail.ru/c/pqld65" target="_blank" style="text-decoration:none">
+                                    <span style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#fff;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">Посмотреть в приложении</span>
+                                </a>
+                            </div>
+                            <div style="border-radius:8px;background-color:transparent;padding:12px 20px;width:200px;height:min-content;white-space:nowrap;border:1px solid #EF3124;margin:0 auto;">
+                                <a href="https://travel.alfabank.ru/" target="_blank" style="text-decoration:none">
+                                    <span style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#EF3124;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">Посмотреть на сайте</span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 24px 16px 24px">
+                            <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">Желаем приятного путешествия, <br>Ваш Альфа-Банк</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding:16px 0">
+                <table align="center" cellspacing="0" cellpadding="0" border="0" valign="top">
+                    <tbody>
+                    <tr>
+                        <td style="padding-right:12px"><a href="https://t.me/AlfaBank" target="_blank" style="text-decoration:underline"><img alt="telegram" src="http://alfabank.ru/api/files/mail_designer/mailz/1a48836e-d1c8-4431-9e00-a693c234e1fe.png" width="36" height="36" style="display:block;outline:none;border:none;text-decoration:none"></a>
+                        </td>
+                        <td style="padding-right:0"><a href="http://alfa.link/VwVD" target="_blank" style="text-decoration:underline"><img alt="vk" src="http://alfabank.ru/api/files/mail_designer/mailz/e-btn-vk.png" width="36" height="36" style="display:block;outline:none;border:none;text-decoration:none"></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </body>
+</html>

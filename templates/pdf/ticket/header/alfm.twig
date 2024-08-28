@@ -1,0 +1,13 @@
+<div class="head">
+  <img src="https://s.aviakassa.ru/images/Icon_Travel_suitcase_152x120_X4.png" alt=""
+       style="width: 200px; display: block; margin-left: -35px;"/>
+  <br>
+  <br>
+  <span>Альфа Тревел</span><br>
+  {% if ticket.reservation.crs_code %}
+    <span class="sm-text">{{ ticket.reservation.crs_code }}</span><br>
+  {% endif %}
+  <span class="sm-text">{{ order.partnerPhone }}</span>
+</div>
+<br>
+<br>

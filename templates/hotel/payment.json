@@ -1,0 +1,98 @@
+{
+  "lang": "ru",
+  "base_src": null,
+  "promo": [],
+  "pay_link": "http://s2.actr-alfabank-site.actr-front.deac/hotel/checkout/925157/6c864652-53bf-73d1-500c-0239c843cf14/82410533~ca86825cd0a0adef3d91eeb7a4a92e8ead11b2eb",
+  "feedback_link": "http://s2.actr-alfabank-site.actr-front.deac/?showFeedbackForm=1&billing=82410533&lang=ru",
+  "order": {
+    "id": 283938,
+    "created": "07.07.2022",
+    "billing_number": 82410533,
+    "amount_total_sum": 123,
+    "currency": "RUB",
+    "status": "Booked",
+    "service_time_limit": "07.07.2022 14:42:55"
+  },
+  "room": {
+    "check_in_date": "01.10.2022",
+    "check_in_time": "14:00:00",
+    "check_out_date": "02.10.2022",
+    "check_out_time": "12:00:00",
+    "name": "Без категории, тип кровати может измениться",
+    "meal_type": "Комната с завтраком",
+    "meal_code": "RO",
+    "adult": 1,
+    "children": 0,
+    "cancellation_rules": [
+      {
+        "isPossible": true,
+        "serviceFee": 7,
+        "totalAmount": 0,
+        "amount": 0,
+        "UTCDateFrom": {
+          "date": "2022-07-07 00:00:00",
+          "timezone_type": 3,
+          "timezone": "Europe/Moscow"
+        },
+        "UTCDateTo": {
+          "date": "2022-10-01 10:00:00",
+          "timezone_type": 3,
+          "timezone": "Europe/Moscow"
+        }
+      },
+      {
+        "isPossible": true,
+        "serviceFee": 7,
+        "totalAmount": 123,
+        "amount": 116,
+        "UTCDateFrom": {
+          "date": "2022-10-01 10:00:00",
+          "timezone_type": 3,
+          "timezone": "Europe/Moscow"
+        },
+        "UTCDateTo": {
+          "date": "2022-10-01 14:00:00",
+          "timezone_type": 3,
+          "timezone": "Europe/Moscow"
+        }
+      }
+    ]
+  },
+  "ticket": {
+    "hotel_reservation_number": 1762922128,
+    "hotel": {
+      "name": "Тестотель (Островок)",
+      "address": "Белогорск",
+      "stars": 2
+    }
+  },
+  "passengers": [
+    {
+      "id": 368213,
+      "first_name": "EFREMOV",
+      "middle_name": null,
+      "last_name": "PETR",
+      "email": "fullmoon666@yandex.ru",
+      "phone": "+79785677960",
+      "gender": "Мужской пол",
+      "doc_type": "Российский паспорт",
+      "doc_num": "",
+      "doc_expire": null
+    },
+    {
+      "id": 368213,
+      "first_name": "EFREMOV",
+      "middle_name": null,
+      "last_name": "PETR",
+      "email": "fullmoon666@yandex.ru",
+      "phone": "+79785677960",
+      "gender": "Мужской пол",
+      "doc_type": "Российский паспорт",
+      "doc_num": "",
+      "doc_expire": null
+    }
+  ],
+  "baseSrc": null,
+  "payLink": "http://s2.actr-alfabank-site.actr-front.deac/hotel/checkout/925157/6c864652-53bf-73d1-500c-0239c843cf14/82410533~ca86825cd0a0adef3d91eeb7a4a92e8ead11b2eb",
+  "feedbackLink": "http://s2.actr-alfabank-site.actr-front.deac/?showFeedbackForm=1&billing=82410533&lang=ru"
+}

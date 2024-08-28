@@ -1,0 +1,12 @@
+<style>
+  .head {
+    font-style: italic;
+  }
+</style>
+<div class="head">
+  {% if ticket.reservation.crs_code %}
+    <span class="sm-text">{{ ticket.reservation.crs_code }}</span><br>
+  {% endif %}
+</div>
+<br>
+<br>

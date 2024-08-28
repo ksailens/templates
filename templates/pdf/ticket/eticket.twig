@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+      body {
+          margin: 0;
+          padding: 0;
+          background-color: #FAFBFC;
+      }
+
+      div, td {
+          margin: 0;
+          padding: 0;
+      }
+
+      p {
+          margin: 0;
+          padding: 0;
+          font-family: lato, sans-serif;
+          font-size: 14px;
+          font-weight: normal;
+          line-height: 20px;
+      }
+
+  </style>
+</head>
+<body>
+<table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+       border="0" align="left" valign="top">
+  <tbody>
+  <tr>
+    {% if order.partner.code == 'EUNW' %}
+      {% include "_confirm/ticket/header/eunw.twig" %}
+    {% elseif order.partner.code == 'ALFA' %}
+      {% include "_confirm/ticket/header/alfa.twig" %}
+    {% elseif order.partner.code == 'ALFM' %}
+      {% include "_confirm/ticket/header/alfm.twig" %}
+    {% elseif order.partner.code == 'VISA' %}
+      {% include "_confirm/ticket/header/visa.twig" %}
+    {% elseif order.partner.code == '0FKV' %}
+      {% include "_confirm/ticket/header/otkritie.twig" %}
+    {% elseif order.partner.code == 'RSHB' %}
+      {% include "_confirm/ticket/header/rshb.twig" %}
+    {% elseif order.partner.code == 'PPCO' %}
+      {% include "_confirm/ticket/header/ppco.twig" %}
+    {% elseif order.partner.code == 'ACCP' %}
+      {% include "_confirm/ticket/header/accord_post.twig" %}
+    {% else %}
+      {% include "_confirm/ticket/header/default.twig" %}
+    {% endif %}
+  </tr>
+  <tr>
+    <td style="padding-top:31px;border-bottom:1px solid #FAFBFC"></td>
+  </tr>
+  <tr>
+    <td align="left" style="width: 300px">
+      <p style="font-family:montserrat;font-weight:bold;text-align:left;font-size: 22px;line-height: 30px;">
+        {{ passenger.is_refunded ? 'Возвращено (не является проездным документом)' : 'Электронный билет (маршрут/ квитанция)' }}
+      </p>
+      <p style="color: #FAFBFC;font-size: 8px;">_</p>
+      <p style="font-family:montserrat;font-weight:bold;text-align:left;color:#808080;font-size: 18px;line-height: 26px;">
+        {{ passenger.is_refunded ? 'Refunded (not a travel document)' : 'Electronic ticket (itinerary/receipt)' }}
+      </p>
+    </td>
+    <td align="left" rowspan="2" style="background-color: #fff; border: 1px solid #E1E5EF;padding: 16px;width: 350px">
+      <div style="width: 100%;display:block;">
+        <p style="font-family:montserrat;font-weight:bold;text-align:left;font-size: 22px;line-height: 30px;">
+          № {{ ticket.vnd_locators|join(',') }}
+        </p>
+        <p style="color: #fff;font-size: 8px;">_</p>
+        <p style="font-size: 16px; line-height: 24px;font-weight:bold;">
+          Номер бронирования
+        </p>
+        <p style="color: #fff;font-size: 8px;">_</p>
+        <p style="font-size: 16px; line-height: 24px;font-weight:bold;color: #808080;">
+          Reservation number
+        </p>
+        <p style="color: #fff;font-size: 8px;">_</p>
+        <p style="font-size: 12px;color: #808080;">*код брони для онлайн-регистрации и других сервисов авиакомпании</p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-top:31px;border-bottom:1px solid #FAFBFC"></td>
+  </tr>
+  </tbody>
+</table>
+{# ------------------ блок заказа ----------------#}
+<div style="width:100%;display:block;border: 1px solid #E1E5EF;background-color: #fff;margin-top: 32px;margin-bottom: 32px;">
+  <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+         border="0" align="left" valign="top">
+    <tbody>
+    <tr>
+      <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-left: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          Номер заказа
+        </p>
+        <p style="color: #EEF0F6;font-size: 6px;">_</p>
+        <p style="font-weight: bold;color:#808080;">
+          Billing number
+        </p>
+      </td>
+      <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          Данные брони
+        </p>
+        <p style="color: #EEF0F6;font-size: 6px;">_</p>
+        <p style="font-weight: bold;color:#808080;">
+          Booking ref
+        </p>
+      </td>
+      <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          Дата выписки
+        </p>
+        <p style="color: #EEF0F6;font-size: 6px;">_</p>
+        <p style="font-weight: bold;color:#808080;">
+          Ticket issue date:
+        </p>
+      </td>
+      <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          Выдан от
+        </p>
+        <p style="color: #EEF0F6;font-size: 6px;">_</p>
+        <p style="font-weight: bold;color:#808080;">
+          Issued by
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          {{ order.billing_number }}
+        </p>
+      </td>
+      <td style="padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          {{ ticket.locator }}
+        </p>
+      </td>
+      <td style="padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          {% if lang == 'ru' %}
+            {{ order.date_tkt_ru|default('-') }}/{{ order.date_tkt_en|default('-') }}
+          {% else %}
+            {{ order.date_tkt_en|default('-') }}
+          {% endif %}
+        </p>
+      </td>
+      <td style="padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          {% if lang == 'ru' %}
+            {{ ticket.carrier_name_ru }}/{{ ticket.carrier_name_en }}
+            ({{ ticket.carrier_code }})
+          {% else %}
+            {{ ticket.carrier_name_en }}
+            ({{ ticket.carrier_code }})
+          {% endif %}
+        </p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+{# ------------------ блок пассажира ----------------#}
+<div style="width:100%;display:block;border: 1px solid #E1E5EF;background-color: #fff;margin-top: 32px;">
+  <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+         border="0" align="left" valign="top">
+    <tbody>
+    <tr>
+      <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-left: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          Пассажир
+        </p>
+        <p style="color: #EEF0F6;font-size: 6px;">_</p>
+        <p style="font-weight: bold;color:#808080;">
+          Passenger
+        </p>
+      </td>
+      <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          Документ
+        </p>
+        <p style="color: #EEF0F6;font-size: 6px;">_</p>
+        <p style="font-weight: bold;color:#808080;">
+          Document
+        </p>
+      </td>
+      <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          Дата рождения
+        </p>
+        <p style="color: #EEF0F6;font-size: 6px;">_</p>
+        <p style="font-weight: bold;color:#808080;">
+          Birthday
+        </p>
+      </td>
+      <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+        <p style="font-weight: bold;">
+          Номер билета
+        </p>
+        <p style="color: #EEF0F6;font-size: 6px;">_</p>
+        <p style="font-weight: bold;color:#808080;">
+          Ticket number
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+        <p style="font-weight: bold;">
+          {{ passenger.last_name }} {{ passenger.first_name }} {{ passenger.middle_name }}
+        </p>
+      </td>
+      <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+        <p style="font-weight: bold;">
+          {{ passenger.doc_num }}
+        </p>
+      </td>
+      <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+        <p style="font-weight: bold;">
+          {{ passenger.birthday }}
+        </p>
+      </td>
+      <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+        <p style="font-weight: bold;">
+          TE {{ passenger.ticket_number }}
+        </p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+{# ------------------ блок сегментов ----------------#}
+{% for flight in flights %}
+  <div style="margin-top: 32px;">
+    <p style="font-family:montserrat;font-weight:bold;text-align:left;font-size: 18px;line-height: 26px;">
+      {{ flight.departure_city }} &rarr; {{ flight.arrival_city }}
+    </p>
+  </div>
+  {% if flight.is_refunded %}
+    <div style="margin-top: 4px;">
+      <p style="font-family:montserrat;text-align:left;font-size: 16px;line-height: 26px;">
+        Cегмент возвращен <span style="color: #808080;">Refunded</span>
+      </p>
+    </div>
+  {% endif %}
+  <div style="margin-top: 4px;">
+    <p style="text-align:left;font-size: 16px;line-height: 24px;">
+      Время в пути <span style="color: #808080;">Flight time</span> - {{ flight.flight_duration.hour }}ч {{ flight.flight_duration.minute }}мин
+    </p>
+  </div>
+  {# ------------------ рейс, вылет, прилет, номер бронирования ----------------#}
+  <div style="width:100%;display:block;border: 1px solid #E1E5EF;background-color: #fff;margin-top: 16px;">
+    <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+           border="0" align="left" valign="top">
+      <tbody>
+      <tr>
+        <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-left: 16px;padding-bottom: 16px;">
+          <p style="font-weight: bold;">
+            Рейс/класс
+          </p>
+          <p style="color: #EEF0F6;font-size: 6px;">_</p>
+          <p style="font-weight: bold;color:#808080;">
+            Flight/class
+          </p>
+        </td>
+        <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+          <p style="font-weight: bold;">
+            Вылет
+          </p>
+          <p style="color: #EEF0F6;font-size: 6px;">_</p>
+          <p style="font-weight: bold;color:#808080;">
+            Departure
+          </p>
+        </td>
+        <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+          <p style="font-weight: bold;">
+            Прилёт
+          </p>
+          <p style="color: #EEF0F6;font-size: 6px;">_</p>
+          <p style="font-weight: bold;color:#808080;">
+            Arrival
+          </p>
+        </td>
+        <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+          <p style="font-weight: bold;">
+            Номер бронирования
+          </p>
+          <p style="color: #EEF0F6;font-size: 6px;">_</p>
+          <p style="font-weight: bold;color:#808080;">
+            Reservation number
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;font-size: 16px;line-height: 24px;">
+            {{ flight.name }}
+          </p>
+          <p style="color: #ffffff;font-size: 8px;">_</p>
+          <p style="font-size: 16px;line-height: 24px;">
+            КЛАСС ({{ flight.class_code|upper }})
+          </p>
+          <p style="color: #ffffff;font-size: 8px;">_</p>
+          <p style="font-size: 14px; line-height: 20px;">
+            Выполняется а/к <br> {{ flight.carrierData.title_ru }} <br> {{ flight.aircraft }}
+          </p>
+        </td>
+        <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;font-size: 16px;line-height: 24px;">
+            {{ flight.time_dep }}
+          </p>
+          <p style="color: #ffffff;font-size: 8px;">_</p>
+          <p style="font-weight: bold;font-size: 16px;line-height: 24px;">
+            {{ flight.date_dep }}
+          </p>
+          <p style="color: #ffffff;font-size: 8px;">_</p>
+          <p style="font-size: 14px; line-height: 20px;">
+            {{ flight.departure_city }}
+          </p>
+          <p style="color: #ffffff;font-size: 4px;">_</p>
+          <p style="font-size: 14px; line-height: 20px;">
+            {{ flight.air_dep_title }}{% if flight.terminal_dep %}, терминал {{ flight.terminal_dep }}{% endif %}
+          </p>
+        </td>
+        <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;font-size: 16px;line-height: 24px;">
+            {{ flight.time_arr }}
+          </p>
+          <p style="color: #ffffff;font-size: 8px;">_</p>
+          <p style="font-weight: bold;font-size: 16px;line-height: 24px;">
+            {{ flight.date_arr }}
+          </p>
+          <p style="color: #ffffff;font-size: 8px;">_</p>
+          <p style="font-size: 14px; line-height: 20px;">
+            {{ flight.arrival_city }}
+          </p>
+          <p style="color: #ffffff;font-size: 4px;">_</p>
+          <p style="font-size: 14px; line-height: 20px;">
+            {{ flight.air_arr_title }}{% if flight.terminal_arr %}, терминал {{ flight.terminal_arr }}{% endif %}
+          </p>
+        </td>
+        <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;">
+            {{ ticket.vnd_locators|join(',') }}
+          </p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  {# ------------------ класс, статус, багаж, изменения ----------------#}
+  <div style="width:100%;display:block;border: 1px solid #E1E5EF;background-color: #fff;margin-top: 16px;">
+    <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+           border="0" align="left" valign="top">
+      <tbody>
+      <tr>
+        <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-left: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;">
+            Класс бронирования
+          </p>
+          <p style="color: #EEF0F6;font-size: 6px;">_</p>
+          <p style="font-weight: bold;color:#808080;">
+            Booking class
+          </p>
+        </td>
+        <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;">
+            Статус
+          </p>
+          <p style="color: #EEF0F6;font-size: 6px;">_</p>
+          <p style="font-weight: bold;color:#808080;">
+            Status
+          </p>
+        </td>
+        <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;">
+            Багаж
+          </p>
+          <p style="color: #EEF0F6;font-size: 6px;">_</p>
+          <p style="font-weight: bold;color:#808080;">
+            Baggage
+          </p>
+        </td>
+        <td style="width: 25%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;">
+            Изменения (обмен/возврат)
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;font-size: 16px;line-height: 24px;">
+            {{ flight.class_title }}
+          </p>
+        </td>
+        <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;font-size: 16px;line-height: 24px;">
+            OK
+          </p>
+        </td>
+        <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;font-size: 16px;line-height: 24px;">
+            {{ flight.baggage|default('-') }}
+          </p>
+        </td>
+        <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top">
+          <p style="font-weight: bold;">
+            {{ flight.change|lower }}
+            /
+            {{ flight.refund|lower }}
+          </p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  {#  --------- доп услуги, остановки ---------#}
+  <div style="width:100%;display:block;border-bottom: 1px solid #E1E5EF;background-color: #fff;margin-top: 16px;"></div>
+  {#  // доп багаж лоукост#}
+  {% if flight.extraBaggage is defined and flight.extraBaggage is not empty %}
+    <div style="width:100%;display:block;border: 1px solid #E1E5EF;border-top:none;background-color: #fff;">
+      <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+             border="0" align="left" valign="top">
+        <tbody>
+        <tr>
+          <td style="padding: 16px;width: 50%;">
+            <p>Доп. багаж <span style="color: #808080;">Extra baggage</span></p>
+          </td>
+          <td style="padding: 16px 16px 16px 0;width: 50%;">
+            <p style="text-align: left">{{flight.extraBaggage}}</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
+  {#  // доп багаж миксвелл#}
+  {% if flight.additional_services.extra_baggage is defined and flight.additional_services.extra_baggage is not empty %}
+    {% for bagage in flight.additional_services.extra_baggage %}
+      <div style="width:100%;display:block;border: 1px solid #E1E5EF;border-top:none;background-color: #fff;">
+        <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+               border="0" align="left" valign="top">
+          <tbody>
+          <tr>
+            <td style="padding: 16px;width: 50%;">
+              <p>Доп. багаж <span style="color: #808080;">Extra baggage</span></p>
+            </td>
+            <td style="padding: 16px 16px 16px 0;width: 50%;">
+              <p style="text-align: left">{{ bagage.weight }}{{bagage.weight_unit}} ({{ bagage.count }} {{ bagage.count == 1 ? 'место/place' : 'места/places' }})</p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    {% endfor %}
+  {% endif %}
+  {#  // тех остановки#}
+  {% if flight.stops is defined and flight.stops is not empty %}
+    <div style="width:100%;display:block;border: 1px solid #E1E5EF;border-top:none;background-color: #fff;">
+      <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+             border="0" align="left" valign="top">
+        <tbody>
+        <tr>
+          <td style="padding: 16px;width: 50%;">
+            {% if flight.stops|length > 1 %}
+              <p>Технические посадки <span style="color: #808080;">Technical stops</span></p>
+            {% else %}
+              <p>Технические посадка <span style="color: #808080;">Technical stop</span></p>
+            {% endif %}
+          </td>
+          <td style="padding: 16px 16px 16px 0;width: 50%;">
+            <p style="text-align: left">
+              {% for stop in flight.stops %}
+                {{ stop.city_title }}
+                (
+                {{ stop.duration.hour }}ч
+                {{ stop.duration.minute }}мин
+                )
+                {% if not loop.last %},
+                {% endif %}
+              {% endfor %}
+            </p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
+{% endfor %}
+{#// статический текст#}
+<div style="padding-top: 32px;">
+  <p>Информация по регистрируемому багажу/Check-in baggage ingormation ON, OP — нет багажа; 1N, 1P — одно место багажа; k, kg — кг.</p>
+  <p style="padding-top: 8px">Внимание! Указано местное время вылета и прибытия. Накануне вылета уточните время вылета рейса.
+    Регистрация на рейс, как правило, заканчивается за {{ ticket.register_time_limit }} минут до отправления, если иное не установлено перевозчиком.
+    Регистрация на рейс в аэропорту может быть платной. Рекомендуем уточнить всю информацию относительно регистрации на рейс на сайте авиакомпании или аэропорта.</p>
+  <p style="padding-top: 8px">Attention! Departures and arrivals are in local time. Before departure check time of departure.
+    Generally check-in is completed {{ ticket.register_time_limit }} minutes priore to departure unless the carrier announces otherwise.
+    Check-in at the airport may be for a fee. We recommend you to check all check-in information on website of airline or aeroport.</p>
+  <p style="padding-top: 8px">
+    Передат.надписи/ограничения / Endorsement/restrictions {{ passenger.endorsements }}
+  </p>
+  <p style="padding-top: 8px">
+    Форма оплаты/form of payment: {% if eCard %}credit card {{ eCard }}{% else %}НАЛ{% endif %}
+  </p>
+</div>
+{#// стоимость и прочая инфа#}
+<div style="width:100%;display:block;border: 1px solid #E1E5EF;background-color: #fff;margin-top: 32px;margin-bottom: 32px;">
+  <table width="100%" cellpadding="0" cellspacing="0"
+         border="0" align="left" valign="top">
+    <tbody>
+    <tr>
+      <td style="padding: 16px;">
+        <p style="font-weight: bold;">Тариф <span style="color: #808080">Fare</span></p>
+      </td>
+      <td style="padding: 16px;text-align: right">
+        <p style="font-weight: bold;">
+          {% if passenger.tarif_details.inputPrice %}
+            {{ passenger.tarif_details.inputPrice.value|default(0)|round(2)|number_format(2, '.' , ' ') }}
+            {{ passenger.tarif_details.inputPrice.currency|default('RUB') }}
+          {% else %}
+            {{ passenger.tarif|default(0)|round(2)|number_format(2, '.' , ' ') }}
+            {{ order.currency|default('RUB') }}
+          {% endif %}
+        </p>
+      </td>
+    </tr>
+    {% if passenger.count_bg and extraBaggagePrice > 0 %}
+      <tr><td colspan="2" style="border-top: 1px solid #E1E5EF"></td></tr>
+      <tr>
+        <td style="padding: 16px;">
+          <p style="font-weight: bold;">Доп.багаж <span style="color: #808080">Extra baggage</span> (мест: {{ passenger.count_bg }})</p>
+        </td>
+        <td style="padding: 16px;text-align: right">
+          <p style="font-weight: bold;">
+            {{ extraBaggagePrice|default(0)|round(2)|number_format(2, '.' , ' ') }}
+            {{ passenger.tarif_details.inputPrice.currency }}
+          </p>
+        </td>
+      </tr>
+    {% endif %}
+    <tr><td colspan="2" style="border-top: 1px solid #E1E5EF"></td></tr>
+    <tr>
+      <td style="padding: 16px;">
+        <p style="font-weight: bold;">Сбор <span style="color: #808080">Tах/fee/charge</span></p>
+      </td>
+      <td style="padding: 16px;text-align: right">
+        <p style="font-weight: bold;">
+          {% if passenger.tax_details.inputPrice %}
+            {{ passenger.tax_details.inputPrice.value|default(0)|round(2)|number_format(2, '.' , ' ') }}
+            {{ passenger.tax_details.inputPrice.currency|default('RUB') }}
+          {% else %}
+            {{ passenger.sum_taxes|default(0)|round(2)|number_format(2, '.' , ' ') }}
+            {{ order.currency|default('RUB') }}
+          {% endif %}
+        </p>
+      </td>
+    </tr>
+    {% if vatTaxItinerary.is_show %}
+      <tr><td colspan="2" style="border-top: 1px solid #E1E5EF"></td></tr>
+      <tr>
+        <td style="padding: 16px;">
+          <p style="font-weight: bold;">В т.ч. НДС <span style="color: #808080">VAT</span> {{ vatTaxItinerary.percent }}%</p>
+        </td>
+        <td style="padding: 16px;text-align: right">
+          <p style="font-weight: bold;">
+            {% if passenger.tax_details.inputPrice %}
+              {{ ((extraBaggagePrice + passenger.price_details.inputPrice.value) * vatTaxItinerary.coefficient)|default(0)|round(0)|number_format(2, '.' , ' ') }}
+              {{ passenger.tax_details.inputPrice.currency|default('RUB') }}
+            {% else %}
+              {{ (passenger.total * vatTaxItinerary.coefficient)|default(0)|round(2)|number_format(2, '.' , ' ') }}
+              {{ order.currency|default('RUB') }}
+            {% endif %}
+          </p>
+        </td>
+      </tr>
+    {% endif %}
+    <tr><td colspan="2" style="border-top: 1px solid #E1E5EF"></td></tr>
+    <tr>
+      <td style="padding: 16px;">
+        <p style="font-weight: bold;">Итоговая стоимость перевозки <span style="color: #808080">Total cost of transportation</span></p>
+      </td>
+      <td style="padding: 16px;text-align: right">
+        <p style="font-weight: bold;">
+          {% if passenger.price_details.inputPrice %}
+            {{ (extraBaggagePrice + passenger.price_details.inputPrice.value)|default(0)|round(2)|number_format(2, '.' , ' ') }}
+            {{ passenger.price_details.inputPrice.currency|default('RUB') }}
+          {% else %}
+            {{ passenger.total|default(0)|round(2)|number_format(2, '.' , ' ') }}
+            {{ order.currency|default('RUB') }}
+          {% endif %}
+        </p>
+      </td>
+    </tr>
+
+    {% if passenger.price_details.inputPrice and (passenger.price_details.inputPrice.currency != passenger.price_details.innerPrice.currency) %}
+      <tr><td colspan="2" style="border-top: 1px solid #E1E5EF"></td></tr>
+      <tr>
+        <td style="padding: 16px;">
+          <p style="font-weight: bold;">Эквивалент <span style="color: #808080">Equivalent</span></p>
+        </td>
+        <td style="padding: 16px;text-align: right">
+          <p style="font-weight: bold;">
+            {{ passenger.price_details.innerPrice.value|default(0)|round(2)|number_format(2, '.' , ' ') }}
+            {{ passenger.price_details.innerPrice.currency }}
+          </p>
+        </td>
+      </tr>
+      <tr><td colspan="2" style="border-top: 1px solid #E1E5EF"></td></tr>
+      <tr>
+        <td style="padding: 16px;">
+          <p style="font-weight: bold;">Курс перерасчета <span style="color: #808080">Exchange rate</span></p>
+        </td>
+        <td style="padding: 16px;text-align: right">
+          <p style="font-weight: bold;">
+            {% if passenger.tarif_details.inputPrice.value and passenger.tarif_details.inputPrice.value != 0 %}
+              {{ exchangeRate|default(0)|round(2)|number_format(2, '.' , ' ') }}
+              {{ passenger.tarif_details.innerPrice.currency }}
+            {% endif %}
+          </p>
+        </td>
+      </tr>
+    {% endif %}
+    </tbody>
+  </table>
+</div>
+</body>

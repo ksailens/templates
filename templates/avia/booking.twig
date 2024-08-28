@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=600px">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="date=no">
+        <meta name="format-detection" content="email=no">
+        <link rel="stylesheet" type="text/css" href="https://www.aviakassa.com/cms/image/static/alfa-email/fonts.css">
+        <title>Бронирование авиабилета</title>
+        <style type="text/css">
+            .normal-client {
+                min-width: unset !important;
+            }
+            a[x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: none !important;
+                font-size: inherit !important;
+                font-family: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+            }
+        </style>
+    </head>
+    <body style="width:100%;margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%">
+    <table width="100%" height="100%" bgcolor="#F3F4F5" cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+        <tbody>
+            <tr>
+                <td align="center" valign="top">
+                    <table width="100%" align="center" cellpadding="0" cellspacing="0" style="padding-top:20px"
+                           border="0" valign="top">
+                        <tbody></tbody>
+                    </table>
+                    <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div style="display:none;max-height:0;overflow:hidden">Ваш заказ {{ order.billing_number }} ожидает оплаты.</div>
+                                <div style="display:none;max-height:0;overflow:hidden">&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table style="width:100%;background-color:rgb(255, 255, 255);border-collapse:collapse;border-radius:6px;margin-top:20px;max-width:600px" align="center" cellpadding="0" cellspacing="0" border="0" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="center" style="padding:24px">
+                                <a href="https://travel.alfabank.ru/" target="_blank" style="text-decoration:underline">
+                                    <img alt="Альфа-Банк" src="https://www.aviakassa.com/cms/image/static/alfa-email/logo.png" width="28" height="42" style="display:block;outline:none;border:none;text-decoration:none">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="alfabank-hero-image" src="https://www.aviakassa.com/cms/image/static/alfa-email/avia-hero.jpg" style="display:block;outline:none;border:none;text-decoration:none;width:100%;height:auto">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:16px 24px">
+                                <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0;pointer-events:none;">
+                                    {{ greeting(user_first_name, lang) }}<br><br>
+                                    Вы забронировали авиабилет {{ order.billing_number }} от&nbsp;‌{{ order.created }} на&nbsp;‌сумму {{ order.amount_total_sum }}&nbsp;{{ order.currency }}.<br><br>
+                                    Рекомендуем оплатить заказ до {{ order.service_time_limit }}, чтобы сохранить места и стоимость билета.
+                                </p>
+                            </td>
+                        </tr>
+                        {% if passengers is defined %}
+                            {% for passenger in passengers %}
+                            <tr>
+                                <td style="padding:0 24px 16px 24px">
+                                    <table style="width:100%" cellpadding="0" cellspacing="0" border="0" align="left"
+                                           valign="top">
+                                        <tbody>
+                                        <tr>
+                                            <td align="left" style="background:#EF3124;padding:8px 16px;border-radius:7px 7px 0 0">
+                                                <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:400;line-height:16.8px;color:#fff;text-align:left;margin:0;padding:0;white-space:nowrap">Пассажир<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:12px;font-weight:400;line-height:14px;color:rgba(255, 255, 255, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Passenger</span></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0 15px;display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:flex-start;border-left:1px solid rgba(0, 0, 0, 0.1);border-bottom:1px solid rgba(0, 0, 0, 0.1);border-right:1px solid rgba(0, 0, 0, 0.1);border-radius:0 0 7px 7px;padding-left:14px;padding-right:14px;padding-top:0;padding-bottom:16px">
+                                                <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="display:flex;flex-wrap:wrap">
+                                                            <table style="min-width:180px;max-width:180px;height:min-content;padding-top:16px"
+                                                                   cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                                        <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Фамилия<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Name</span>
+                                                                        </p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="display:flex;align-items:center"><p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0">{{ passenger.last_name }} {{ passenger.first_name }} {{ passenger.middle_name }}</p>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <table style="min-width:unset;max-width:180px;height:min-content;padding-top:16px;padding-right:57px"
+                                                                   cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                                        <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Документ<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Document</span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="display:flex;align-items:center"><span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;pointer-events:none;">{{ passenger.doc_num }}</span>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            {% if passenger.ticket_number is not null %}
+                                                            <table style="min-width:158px;max-width:180px;height:min-content;padding-top:16px;padding-right:0"
+                                                                   cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                                                        <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Номер билета<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Ticket number</span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="display:flex;align-items:center">
+                                                                        <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;pointer-events:none;">{{ passenger.ticket_number }}</span>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            {% endif %}
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                        {% if flights is defined %}
+                            {% for flight in flights %}
+                                <tr>
+                                    <td style="padding:0 24px 16px 24px">
+                                        <table class="normal-client" style="width:100%;min-width:540px;" cellpadding="0" cellspacing="0" border="0" align="left"
+                                                   valign="top">
+                                                <tbody>
+                                                <tr>
+                                                    <td align="left" style="background:#EF3124;padding:8px 16px;border-radius:7px 7px 0 0">
+                                                    <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:400;line-height:16.8px;color:#fff;text-align:left;margin:0;padding:0;white-space:nowrap">
+                                                        {{ flight.departure_city_title }} - {{ flight.arrival_city_title }}
+                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0 14px 16px 14px;border-left:1px solid rgba(0, 0, 0, 0.1);border-bottom:1px solid rgba(0, 0, 0, 0.1);border-right:1px solid rgba(0, 0, 0, 0.1);border-radius:0 0 7px 7px;">
+                                                        <table style="border-collapse: collapse;width: 100%;margin:0;padding:0;" border="0" cellpadding="0" cellspacing="0">
+                                                            <tbody>
+                                                            <tr style="display:flex;flex-wrap:wrap;justify-content:space-between;">
+                                                                <td align="left" valign="top" style="padding-right:60px">
+                                                                    <table style="max-width:158px;height:min-content;padding-top:16px;"
+                                                                           cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td align="left" style="padding-bottom:10px;white-space:nowrap">
+                                                                                <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">
+                                                                                    Рейс<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Flight</span>
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="display:flex;align-items:center">
+                                                                                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+                                                                                    <tr>
+                                                                                        <td valign="middle">
+                                                                                            <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;pointer-events:none;">
+                                                                                                {{ ticket.carrier_code }}-{{ flight.flight_number }}
+                                                                                            </p>
+                                                                                        </td>
+                                                                                        <td valign="middle">
+                                                                                            <img alt="avia-company" src="https://s.aviakassa.ru/suppliers_redesign/square_100x100/{{ flight.supplier_code }}.png"
+                                                                                                 width="18" height="18" style="display:block;outline:none;border:none;text-decoration:none;margin-left:8px;object-fit:cover;object-position:left">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="padding-top:10px;max-width:90px">
+                                                                                <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;">
+                                                                                    а/к {{ ticket.carrier_name_en }} <br>{{ flight.aircraft }}<br>В пути {{ flight.duration_in_sec | formatFlightDuration(lang) }}
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                                <td align="center" valign="top" style="padding-right:60px">
+                                                                    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td valign="top">
+                                                                                <table style="max-width:158px;padding-right:0;height:min-content;padding-top:16px"
+                                                                                       cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td align="left" style="padding-bottom:10px;white-space:nowrap">
+                                                                                            <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Вылет<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Departure</span></p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;display:flex;align-items:center">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;">
+                                                                                                            <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#EF3124;text-align:center;text-transform:uppercase;margin:0;padding:0 4px 0 0">{{ flight.airport_dep_code }}</span>
+                                                                                                            <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap">{{ flight.time_dep }}</span>
+                                                                                                        </p>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <img alt="arrow" src="https://www.aviakassa.com/cms/image/static/alfa-email/arrow.png"
+                                                                                                             width="26" height="8" style="display:block;outline:none;border:none;text-decoration:none;margin:auto 12px">
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="padding-top:10px;max-width:90px">
+                                                                                            <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:500;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap;">
+                                                                                                {{ flight.date_dep | formatFlightDate() }}
+                                                                                            </p>
+                                                                                            <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0">
+                                                                                                {% if flight.air_dep_title is not empty %} {{ flight.air_dep_title }}{% else %}&nbsp;{% endif %}
+                                                                                                <br>
+                                                                                                {% if flight.terminal_dep is not empty %}Терминал&nbsp;{{ flight.terminal_dep }}{% else %}&nbsp;{% endif %}
+                                                                                            </p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                            <td valign="top">
+                                                                                <table style="max-width:158px;padding-right:0;height:min-content;padding-top:16px"
+                                                                                       cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td align="left" style="padding-bottom:10px;white-space:nowrap">
+                                                                                            <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Прилёт<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Arrival</span></p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="display:flex;align-items:center">
+                                                                                            <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;">
+                                                                                                <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#EF3124;text-align:center;text-transform:uppercase;margin:0;padding:0 4px 0 0;">{{ flight.airport_arr_code }}</span>
+                                                                                                <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap">{{ flight.time_arr }}</span>
+                                                                                            </p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="padding-top:10px;max-width:90px">
+                                                                                            <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:500;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0">{{ flight.date_arr | formatFlightDate() }}</p>
+                                                                                            <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0">
+                                                                                                {% if flight.air_arr_title is not empty %} {{ flight.air_arr_title }}{% else %}&nbsp;{% endif %}
+                                                                                                <br>
+                                                                                                {% if flight.terminal_arr is not empty %}Терминал&nbsp;{{ flight.terminal_arr }}{% else %}&nbsp;{% endif %}
+                                                                                            </p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                                <td align="right" valign="top">
+                                                                    <table style="max-width:158px;height:min-content;padding-top:16px"
+                                                                           cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td align="left" style="padding-bottom:10px;white-space:nowrap">
+                                                                                <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Тариф<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Tariff</span></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="display:flex;align-items:center">
+                                                                                <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap">КЛАСС {{ flight.class_code | upper }}</p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="padding-top:10px;max-width:90px">
+                                                                                <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0">
+                                                                                    {{ flight.baggage | formatBaggage }}
+                                                                                </p>
+                                                                                <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">
+                                                                                    {% if flight.change == 1 %}
+                                                                                <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">
+                                                                                    Обмен возможен со сбором
+                                                                                </p>
+                                                                                {% else %}
+                                                                                    <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0 30px 0 0;white-space:nowrap">
+                                                                                        Без обмена
+                                                                                    </p>
+                                                                                {% endif %}
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                        <tr>
+                            <td style="padding:0 24px 16px 24px">
+                                <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">
+                                    Посмотреть полную информацию о бронировании можно в приложении Альфа-Банка ➔ сервис Альфа&nbsp;Путешествия ➔ раздел Мои&nbsp;заказы.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="display:block;padding:16px;">
+                                <div style="border-radius:8px;background-color:#EF3124;padding:12px 20px;width:200px;white-space:nowrap;margin:0 auto 10px auto;">
+                                    <a href="https://trk.mail.ru/c/pqld65" target="_blank" style="text-decoration:none">
+                                        <span style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#fff;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">Посмотреть в приложении</span>
+                                    </a>
+                                </div>
+                                <div style="border-radius:8px;background-color:transparent;padding:12px 20px;width:200px;height:min-content;white-space:nowrap;border:1px solid #EF3124;margin:0 auto;">
+                                    <a href="https://travel.alfabank.ru/" target="_blank" style="text-decoration:none">
+                                        <span style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#EF3124;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">Посмотреть на сайте</span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0 24px 16px 24px">
+                                <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">Желаем приятного путешествия, <br>Ваш Альфа-Банк</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:16px 0">
+                    <table align="center" cellspacing="0" cellpadding="0" border="0" valign="top" style="border-collapse:collapse;">
+                        <tbody>
+                            <tr>
+                                <td style="padding-right:12px">
+                                    <a href="https://t.me/AlfaBank" target="_blank" style="text-decoration:underline">
+                                        <img alt="telegram" src="http://alfabank.ru/api/files/mail_designer/mailz/1a48836e-d1c8-4431-9e00-a693c234e1fe.png" width="36" height="36" style="display:block;outline:none;border:none;text-decoration:none">
+                                    </a>
+                                </td>
+                                <td style="padding-right:0">
+                                    <a href="http://alfa.link/VwVD" target="_blank" style="text-decoration:underline">
+                                        <img alt="vk" src="http://alfabank.ru/api/files/mail_designer/mailz/e-btn-vk.png" width="36" height="36" style="display:block;outline:none;border:none;text-decoration:none">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </body>
+</html>

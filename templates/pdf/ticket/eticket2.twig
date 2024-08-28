@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="#" />
+    </head>
+    <body>
+        <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+               border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+                <td style="margin:0;padding:0" align="left">
+                    <a href="https://travel.alfabank.ru/" target="_blank" style="text-decoration:underline">
+                        <img alt="Альфа-Банк" src="https://www.aviakassa.com/cms/image/static/alfa-email/logo.svg" width="23" height="35" style="display:block;outline:none;border:none;text-decoration:none"></a>
+                </td>
+                <td align="left" colspan="2">
+                    <p style="font-family:montserrat;font-size:18px;font-weight:bold;line-height:21.6px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">
+                        Маршрутная квитанция<span style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Itinerary receipt</span>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+            </tr>
+            <tr>
+                <td style="height: 16px"></td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <table style="width:158px;height:min-content;" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Номер заказа<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Billing number</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex;align-items:center">
+                                <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ order.billing_number }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table style="width:300px;height:min-content;" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Дата выписки<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Ticket issue date</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex;align-items:center">
+                                <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ order.date_tkt_ru | date("d.m.Y") }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table style="width:158px;height:min-content;" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Бронирование<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Reservation number*</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ ticket.vnd_locators }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" style="padding-top:16px;">
+                    <table style="width:158px;height:min-content;" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Данные брони<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Booking ref</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex;align-items:center">
+                                <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ ticket.locator }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top" style="padding-top:16px;">
+                    <table style="width:158px;height:min-content;" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Выдан от<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Issued by</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex;align-items:center">
+                                <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">{{ ticket.carrier_name_ru | upper }} ({{ ticket.carrier_code | upper }})</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top" style="padding-top:16px;">
+                    <table style="width:158px;height:min-content;" cellpadding="0"
+                           cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td style="display:flex;align-items:center">
+                                <p style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">*код брони для онлайн-регистрации и других сервисов авиакомпании</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+                <td style="padding-top:18px;border-bottom:1px solid lightgray"></td>
+            </tr>
+            <tr>
+                <td style="height:18px"></td>
+            </tr>
+            <tr>
+                <td align="left" style="padding-bottom: 16px;">
+                    <p style="font-family:montserrat;font-size:12px;font-weight:bold;line-height:14px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Пассажир<span style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Passenger</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <table style="width:180px;max-width:180px;height:min-content;border-collapse:collapse;" align="left" valign="top">
+                        <tbody>
+                        <tr >
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap" valign="top">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Фамилия<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Name</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex;align-items:center">
+                                <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;text-transform:uppercase;margin:0;padding:0">{{ passenger.last_name }} {{ passenger.first_name }} {{ passenger.middle_name }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table style="min-width:unset;max-width:180px;height:min-content;border-collapse:collapse;"
+                           cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Документ<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Document</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex;align-items:center">
+                                <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;text-transform:uppercase;margin:0;padding:0">{{ passenger.doc_num }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top">
+                    <table style="min-width:158px;max-width:180px;height:min-content;border-collapse:collapse"
+                           cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Номер билета<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Ticket number</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex;align-items:center">
+                                <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;text-transform:uppercase;margin:0;padding:0">{{ passenger.ticket_number }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        {% if flights is defined %}
+            {% for flight in flights %}
+                <div style="padding-top:24px">
+                    <div style="display:block;background-color:#EF3124;padding-top:8px;padding-bottom:8px;padding-left:16px;padding-right:16px;width:100%;height:20px;border-top-left-radius:7px;border-top-right-radius:7px">
+                        <span style="font-family:montserrat;font-size:14px;font-weight:normal;line-height:16.8px;color:#fff;text-align:left;margin:0;padding:0;white-space:nowrap">{{ flight.city_dep_title }} - {{ flight.city_arr_title }}</span>
+                    </div>
+                    <div style="width:100%">
+                        <div style="width:100%;border-left:1px solid #b3b3b3;border-bottom:1px solid #b3b3b3;border-right:1px solid #b3b3b3;border-radius:0 0 7px 7px;padding-left:14px;padding-right:14px;padding-top:0;padding-bottom:16px">
+                            <table width="100%" valign="top" style="padding-top:8px" cellpadding="0"
+                                   cellspacing="0" border="0" align="left">
+                                <tbody>
+                                <tr>
+                                    <td style="max-width:158px" valign="top" align="left">
+                                        <table style="margin-bottom:8px" cellpadding="0" cellspacing="0" border="0"
+                                               align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="white-space:nowrap">
+                                                    <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Рейс<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Flight</span></p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table align="left" valign="middle" cellpadding="0"
+                                               cellspacing="0" border="0" style="margin-bottom: 7px">
+                                            <tbody>
+                                            <tr>
+                                                <td valign="top">
+                                                    <p style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:12px;color:#000000;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;background-color:transparent">
+                                                        {{ flight.name }}
+                                                    </p>
+                                                </td>
+                                                <td style="width:8px"></td>
+                                                <td valign="middle">
+                                                    <img alt="avia-company" src="https://s.aviakassa.ru/suppliers_redesign/square_100x100/{{ flight.supplier_code }}.png"
+                                                         width="18" height="18" style="display:block;outline:none;border:none;text-decoration:none;object-fit:contain;object-position:left;">
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">
+                                            а/к {{ ticket.carrier_name_en }} <br>{{ flight.aircraft }}<br>В пути {{ flight.duration_in_sec | formatFlightDuration(lang) }}
+                                        </p>
+                                    </td>
+                                    <td valign="top">
+                                        <table width="240px" align="center" cellpadding="0" cellspacing="0" border="0"
+                                               valign="top" style="border-collapse: collapse">
+                                            <tbody>
+                                            <tr>
+                                                <td style="max-width:158px;padding-right:0" valign="top" align="left">
+                                                    <table style="margin-bottom:8px" cellpadding="0" cellspacing="0" border="0"
+                                                           align="left" valign="top">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td align="left" style="white-space:nowrap">
+                                                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Вылет<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Departure</span></p>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table align="left" valign="middle" style="margin-bottom:8px" cellpadding="0"
+                                                           cellspacing="0" border="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p style="font-family:montserrat;text-align:center;font-weight:bold;font-size:14px;line-height:16.8px;color:#EF3124;text-transform:uppercase;margin:0;padding:0">{{ flight.city_dep_iata }}</p>
+                                                            </td>
+                                                            <td style="width:8px"></td>
+                                                            <td><span style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;background-color:transparent">{{ flight.time_dep }}</span>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div style="padding-top:10px;max-width:90px">
+                                                        <span style="font-family:montserrat;font-size:8px;font-weight:bold;line-height:10px;color:#000000;text-align:left;margin:0;padding:0"><div>{{ flight.date_dep | formatFlightDate() }}</div></span>
+                                                        <span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#000000;text-align:left;margin:0;padding:0">
+                                                                    {{ flight.air_dep_title }}
+                                                                    <br>
+                                                                    {% if flight.terminal_dep is not empty %}
+                                                                        Терминал&nbsp;{{ flight.terminal_dep }}
+                                                                    {% endif %}
+                                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td align="left" valign="middle" style="padding-right:10px;padding-bottom:14px">
+                                                    <img alt="arrow" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDI2IDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yNS4zNTM2IDQuMzUzNTVDMjUuNTQ4OCA0LjE1ODI5IDI1LjU0ODggMy44NDE3MSAyNS4zNTM2IDMuNjQ2NDVMMjIuMTcxNiAwLjQ2NDQ2NkMyMS45NzYzIDAuMjY5MjA0IDIxLjY1OTcgMC4yNjkyMDQgMjEuNDY0NSAwLjQ2NDQ2NkMyMS4yNjkyIDAuNjU5NzI4IDIxLjI2OTIgMC45NzYzMTEgMjEuNDY0NSAxLjE3MTU3TDI0LjI5MjkgNEwyMS40NjQ1IDYuODI4NDNDMjEuMjY5MiA3LjAyMzY5IDIxLjI2OTIgNy4zNDAyNyAyMS40NjQ1IDcuNTM1NTNDMjEuNjU5NyA3LjczMDggMjEuOTc2MyA3LjczMDggMjIuMTcxNiA3LjUzNTUzTDI1LjM1MzYgNC4zNTM1NVpNMCA0LjVIMjVWMy41SDBWNC41WiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg=="
+                                                         width="26" height="8" style="display:block;outline:none;border:none;text-decoration:none">
+                                                </td>
+                                                <td style="max-width:158px;padding-right:0" valign="top" align="left">
+                                                    <table style="margin-bottom:8px" cellpadding="0" cellspacing="0" border="0"
+                                                           align="left" valign="top">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td align="left" style="white-space:nowrap">
+                                                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Прилёт<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Arrival</span></p>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table align="left" valign="middle" style="margin-bottom:8px" cellpadding="0"
+                                                           cellspacing="0" border="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p style="font-family:montserrat;text-align:center;font-weight:bold;font-size:14px;line-height:16.8px;color:#EF3124;text-transform:uppercase;margin:0;padding:0">{{ flight.city_arr_iata }}</p>
+                                                            </td>
+                                                            <td style="width:8px"></td>
+                                                            <td><span style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;background-color:transparent">{{ flight.time_arr }}</span>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div style="padding-top:10px;max-width:90px"><span style="font-family:montserrat;font-size:8px;font-weight:bold;line-height:10px;color:#000000;text-align:left;margin:0;padding:0"><div>{{ flight.date_arr | formatFlightDate() }}</div></span>
+                                                        <span
+                                                                style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#000000;text-align:left;margin:0;padding:0">
+                                                                                                <div>{{ flight.air_arr_title }}
+                                                                                                    <br>{% if flight.terminal_arr is not empty %}Терминал&nbsp;{{ flight.terminal_arr
+                                                                                                    }}{% endif %}</div>
+                                                                                                </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td style="max-width:158px;padding-right:0" valign="top" align="left">
+                                        <table style="margin-bottom:8px" cellpadding="0" cellspacing="0" border="0"
+                                               align="left" valign="top">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Тариф<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Tariff</span></p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table align="left" valign="middle" style="margin-bottom:8px" cellpadding="0"
+                                               cellspacing="0" border="0">
+                                            <tbody>
+                                            <tr>
+                                                <td><span style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;background-color:transparent">КЛАСС {{ flight.class_code | upper }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <div style="padding-top:10px;max-width:90px"><span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#000000;text-align:left;margin:0;padding:0"><div>{{ flight.rulesFare.bag }}</div></span>
+                                            <span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">
+                                                            {{ flight.change }}
+                                                        </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div style="height:34px"></div>
+        <table width="100%" style="border-collapse:collapse" cellpadding="0"
+               cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            <tr>
+                <td style="width:158px" valign="top">
+                    <table width="100%" align="left" valign="top" style="border-collapse:collapse"
+                           cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                        <tr>
+                            <td style="padding-bottom:10px">
+                                <span style="font-family:montserrat;font-size:14px;font-weight:bold;line-height:16.8px;color:#000000;text-align:left;margin:0;padding:0">Квитанция</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="middle">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Тариф<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Fare</span></p>
+                            </td>
+                            <td align="right">
+                                <span style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:right;margin:0;padding:0">
+                                    {% if isPrice and not isBpoints %}
+                                        {% if passenger.tarif_details.inputPrice %}
+                                            {{ passenger.tarif_details.inputPrice.value|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                            {{ passenger.tarif_details.inputPrice.currency }}
+                                        {% else %}
+                                            {{ passenger.tarif|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                            {{ order.currency }}
+                                        {% endif %}
+                                    {% elseif isBpoints and not isPrice %}
+                                        {{ passenger.tarif_bpoints|default(0)|number_format(0, '.', ',') }}
+                                        point(s)
+                                    {% elseif isPrice and isBpoints %}
+                                        {% if passenger.tarif_details.inputPrice %}
+                                            {{ passenger.tarif_details.inputPrice.value|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                            {{ passenger.tarif_details.inputPrice.currency }}
+                                        {% else %}
+                                            {{ passenger.tarif|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                            {{ order.currency }}
+                                        {% endif %}
+
+                                        (
+                                        {{ passenger.tarif_bpoints|default(0)|number_format(0, '.', ',') }}
+                                        point(s)
+                                        )
+                                    {% else %}
+                                        {% if passenger.tarif_details.inputPrice %}
+                                            {{ passenger.tarif_details.inputPrice.value|default(0) }}
+                                            {{ passenger.tarif_details.inputPrice.currency|default('RUB') }}
+                                        {% else %}
+                                            {{ passenger.tarif|default(0) }}
+                                            {{ order.currency|default('RUB') }}
+                                        {% endif %}
+                                    {% endif %}
+                                </span>
+                            </td>
+                        </tr>
+                        {% if passenger.count_bg and extraBaggagePrice > 0 %}
+                            <tr>
+                                <td style="height:14px"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" style="padding-bottom:12px">
+                                    <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Доп. багаж<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Extra baggage</span></p>
+                                </td>
+                                <td align="right"><span style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:right;margin:0;padding:0">{{ extraBaggagePrice | default(0) | round(2) | number_format(2, "." , " ") }}{{ passenger.tarif_details.inputPrice.currency }}</span>
+                                </td>
+                            </tr>
+                        {% endif %}
+                        <tr>
+                            <td style="height:14px"></td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Сборы<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Taxes</span></p>
+                            </td>
+                            <td align="right">
+                                <span style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:right;margin:0;padding:0">
+                                    {% if isPrice and not isBpoints %}
+                                        {% if passenger.tax_details.inputPrice %}
+                                            {{ passenger.tax_details.inputPrice.value|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                            {{ passenger.tax_details.inputPrice.currency }}
+                                        {% else %}
+                                            {{ passenger.sum_taxes|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                            {{ order.currency }}
+                                        {% endif %}
+                                    {% elseif isBpoints and not isPrice %}
+                                        {{ passenger.sum_taxes_bpoints|default(0)|number_format(0, '.', ',') }}
+                                        point(s)
+                                    {% elseif isPrice and isBpoints %}
+                                        {% if passenger.tax_details.inputPrice %}
+                                            {{ passenger.tax_details.inputPrice.value|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                            {{ passenger.tax_details.inputPrice.currency }}
+                                        {% else %}
+                                            {{ passenger.sum_taxes|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                            {{ order.currency }}
+                                        {% endif %}
+
+                                        (
+                                        {{ passenger.sum_taxes_bpoints|default(0)|number_format(0, '.', ',') }}
+                                        point(s)
+                                        )
+                                    {% else %}
+                                        {% if passenger.tax_details.inputPrice %}
+                                            {{ passenger.tax_details.inputPrice.value|default(0) }}
+                                            {{ passenger.tax_details.inputPrice.currency|default('RUB') }}
+                                        {% else %}
+                                            {{ passenger.sum_taxes|default(0) }}
+                                            {{ order.currency|default('RUB') }}
+                                        {% endif %}
+                                    {% endif %}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:12px;border-bottom:1px solid lightgray"></td>
+                            <td style="padding-top:12px;border-bottom:1px solid lightgray"></td>
+                        </tr>
+                        <tr>
+                            <td style="height:18px"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table width="100%" style="border-collapse:collapse" cellspacing="0" cellpadding="0"
+                           border="0" align="left" valign="top">
+                        <tbody>
+                        <tr>
+                            <td align="left">
+                                <p style="font-family:montserrat;font-size:10px;font-weight:normal;line-height:12px;color:#000000;text-align:left;margin:0;padding:0;white-space:nowrap">Итого<span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0;white-space:nowrap">/Total</span></p>
+                            </td>
+                            <td align="right">
+                                    <span style="font-family:montserrat;font-size:10px;font-weight:bold;line-height:12px;color:#000000;text-align:left;margin:0;padding:0">
+                                            {% if isPrice and not isBpoints %}
+                                                {% if passenger.price_details.inputPrice %}
+                                                    {{ (extraBaggagePrice + passenger.price_details.inputPrice.value)|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                                    {{ passenger.price_details.inputPrice.currency }}
+                                                {% else %}
+                                                    {{ passenger.total|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                                    {{ order.currency }}
+                                                {% endif %}
+                                            {% elseif isBpoints and not isPrice %}
+                                                {{ passenger.total_bpoints|default(0)|number_format(0, '.', ',') }}
+                                                point(s)
+                                            {% elseif isPrice and isBpoints %}
+                                                {% if passenger.price_details.inputPrice %}
+                                                    {{ (extraBaggagePrice + passenger.price_details.inputPrice.value)|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                                    {{ passenger.price_details.inputPrice.currency }}
+                                                {% else %}
+                                                    {{ passenger.total|default(0)|round(2)|number_format(2, '.' , ' ') }}
+                                                    {{ order.currency }}
+                                                {% endif %}
+                                                (
+                                                {{ passenger.total_bpoints|default(0)|number_format(0, '.', ',') }}
+                                                point(s)
+                                                )
+                                            {% else %}
+                                                {% if passenger.price_details.inputPrice %}
+                                                    {{ (extraBaggagePrice + passenger.price_details.inputPrice.value)|default(0) }}
+                                                    {{ passenger.price_details.inputPrice.currency|default('RUB') }}
+                                                {% else %}
+                                                    {{ passenger.total|default(0) }}
+                                                    {{ order.currency|default('RUB') }}
+                                                {% endif %}
+                                            {% endif %}
+                                    </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td style="padding-left:31px">
+                    <table width="346px" cellpadding="0" cellspacing="0" border="0" align="left"
+                           valign="top">
+                        <tbody>
+                        <tr>
+                            <td style="padding-bottom:10px">
+                                <p style="font-family:montserrat;text-align:left;font-weight:bold;font-size:14px;line-height:16.8px;color:#000000;margin:0;padding:0">Примечания</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom:12px">
+                                <p style="font-family:montserrat;text-align:left;font-size:8px;font-weight:normal;line-height:10px;color:#000000;margin:0;padding:0"><span style="font-family:montserrat;font-size:8px;font-weight:bold;line-height:10px;color:#000000;text-align:left;margin:0;padding:0">Внимание! </span>Указано
+                                    местное время вылета и прибытия. Накануне вылета уточните время вылета
+                                    рейса. Регистрация на рейс как правило заканчивается за 40 минут до отправления,
+                                    если иное не установлено перевозчиком. Регистрация на рейс в аэропорту
+                                    может быть платной. Рекомендуем уточнить всю информацию относительно регистарции
+                                    на рейс на сайте авиакомпании или аэропорта.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="font-family:montserrat;text-align:left;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;margin:0;padding:0"><span style="font-family:montserrat;font-size:8px;font-weight:bold;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">Attention! </span>Departures
+                                    and arrivals are in local time. Before departure check time of departure.
+                                    Generally check-in is completed 40 minutes priore to departure unless the
+                                    carrier announces otherwise. Check-in at the airport may be for a fee.
+                                    We recommend you to check all check-in information on website of airline
+                                    or aeroport.</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div style="position:absolute;bottom:30px;left:30px">
+            <span style="font-family:montserrat;font-size:8px;font-weight:normal;line-height:10px;color:#b3b3b3;text-align:left;margin:0;padding:0">travel.alfabank.ru</span>
+        </div>
+    </body>
+</html>

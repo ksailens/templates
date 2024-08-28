@@ -1,0 +1,17 @@
+<style>
+  .head {
+    font-style: italic;
+  }
+</style>
+<div class="head">
+  <img src="http://s.aviakassa.ru/images/logo-ak.png" alt="" style="width: 200px;"/>
+  <img style="float: right; width: 150px;" src="http://s.aviakassa.ru/images/chatico-2x.png">
+  <br>
+  <br>
+  <span class="sm-text">Aviakassa.com</span><br>
+  {% if ticket.reservation.crs_code %}
+    <span class="sm-text">{{ ticket.reservation.crs_code }}</span><br>
+  {% endif %}
+</div>
+<br>
+<br>
