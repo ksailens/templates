@@ -205,92 +205,127 @@
         <p>{{ order.billing_number }}</p>
       </td>
     </tr>
-    <tr>
-      <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
-        <p style="font-weight: bold;">Тариф и таксы по билетам</p>
-      </td>
-      <td style="width: 50%;text-align: right;padding-top: 12px;">
-        <p>{{ (order.amount_total_sum - order.service_fee_sum)|number_format(2, '.', ' ') }} RUB</p>
-      </td>
-    </tr>
-    {% if vatTaxItinerary.is_show %}
+    {% if exchange %}
       <tr>
         <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
-          <p style="font-weight: bold;">В т.ч. НДС/VAT {{ vatTaxItinerary.percent }}%</p>
+          <p style="font-weight: bold;">Сумма доплаты за обмен (тариф + таксы)</p>
+        </td>
+        <td style="width: 50%;text-align: right;padding-top: 12px;">
+          <p>{{ exchange.amount|number_format(2, '.', ' ') }} RUB</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+          <p style="font-weight: bold;">Штраф за обмен</p>
+        </td>
+        <td style="width: 50%;text-align: right;padding-top: 12px;">
+          <p>{{ exchange.penalty_amount|number_format(2, '.', ' ') }} RUB</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+          <p style="font-weight: bold;">Сервисный сбор за обмен</p>
+        </td>
+        <td style="width: 50%;text-align: right;padding-top: 12px;">
+          <p>{{ exchange.service_fee|number_format(2, '.', ' ') }} RUB</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+          <p style="font-weight: bold;">Итого за обмен</p>
+        </td>
+        <td style="width: 50%;text-align: right;padding-top: 12px;">
+          <p>{{ exchange.total|number_format(2, '.', ' ') }} RUB</p>
+        </td>
+      </tr>
+    {% else %}
+      <tr>
+        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+          <p style="font-weight: bold;">Тариф и таксы по билетам</p>
+        </td>
+        <td style="width: 50%;text-align: right;padding-top: 12px;">
+          <p>{{ (order.amount_total_sum - order.service_fee_sum)|number_format(2, '.', ' ') }} RUB</p>
+        </td>
+      </tr>
+      {% if vatTaxItinerary.is_show %}
+        <tr>
+          <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+            <p style="font-weight: bold;">В т.ч. НДС/VAT {{ vatTaxItinerary.percent }}%</p>
+          </td>
+          <td style="width: 50%;text-align: right;padding-top: 12px;">
+            <p>
+              {{ ((order.amount_total_sum - order.service_fee_sum) * vatTaxItinerary.coefficient)|number_format(2, '.', ' ') }} RUB
+            </p>
+          </td>
+        </tr>
+      {% endif %}
+      <tr>
+        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+          <p style="font-weight: bold;">Сборы/скидки</p>
         </td>
         <td style="width: 50%;text-align: right;padding-top: 12px;">
           <p>
-            {{ ((order.amount_total_sum - order.service_fee_sum) * vatTaxItinerary.coefficient)|number_format(2, '.', ' ') }} RUB
+            {{ order.service_fee_sum|number_format(2, '.', ' ') }} RUB
+          </p>
+        </td>
+      </tr>
+      {% if additionalProductsSum > 0 %}
+        <tr>
+          <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+            <p style="font-weight: bold;">Дополнительные услуги</p>
+          </td>
+          <td style="width: 50%;text-align: right;padding-top: 12px;">
+            <p>{{ additionalProductsSum|number_format(2, '.', ' ') }} RUB</p>
+          </td>
+        </tr>
+      {% endif %}
+      {% if insurancesSum > 0 %}
+        <tr>
+          <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+            <p style="font-weight: bold;">Страхование</p>
+          </td>
+          <td style="width: 50%;text-align: right;padding-top: 12px;">
+            <p>
+              {{ insurancesSum|number_format(2, '.', ' ') }} RUB
+            </p>
+          </td>
+        </tr>
+      {% endif %}
+      {% if aexSum > 0 %}
+        <tr>
+          <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+            <p style="font-weight: bold;">Аэроэкспресс</p>
+          </td>
+          <td style="width: 50%;text-align: right;padding-top: 12px;">
+            <p>
+              {{ aexSum|number_format(2, '.', ' ') }} RUB
+            </p>
+          </td>
+        </tr>
+      {% endif %}
+      {% if promoSum > 0 %}
+        <tr>
+          <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+            <p style="font-weight: bold;">Скидка по промокоду</p>
+          </td>
+          <td style="width: 50%;text-align: right;padding-top: 12px;">
+            <p>
+              {{ promoSum|number_format(2, '.', ' ') }} RUB
+            </p>
+          </td>
+        </tr>
+      {% endif %}
+      <tr>
+        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
+          <p style="font-weight: bold;">Итого по заказу</p>
+        </td>
+        <td style="width: 50%;text-align: right;padding-top: 12px;">
+          <p>
+            {{ total|number_format(2, '.', ' ') }} RUB
           </p>
         </td>
       </tr>
     {% endif %}
-    <tr>
-      <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
-        <p style="font-weight: bold;">Сборы/скидки</p>
-      </td>
-      <td style="width: 50%;text-align: right;padding-top: 12px;">
-        <p>
-          {{ order.service_fee_sum|number_format(2, '.', ' ') }} RUB
-        </p>
-      </td>
-    </tr>
-    {% if additionalProductsSum > 0 %}
-      <tr>
-        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
-          <p style="font-weight: bold;">Дополнительные услуги</p>
-        </td>
-        <td style="width: 50%;text-align: right;padding-top: 12px;">
-          <p>{{ additionalProductsSum|number_format(2, '.', ' ') }} RUB</p>
-        </td>
-      </tr>
-    {% endif %}
-    {% if insurancesSum > 0 %}
-      <tr>
-        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
-          <p style="font-weight: bold;">Страхование</p>
-        </td>
-        <td style="width: 50%;text-align: right;padding-top: 12px;">
-          <p>
-            {{ insurancesSum|number_format(2, '.', ' ') }} RUB
-          </p>
-        </td>
-      </tr>
-    {% endif %}
-    {% if aexSum > 0 %}
-      <tr>
-        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
-          <p style="font-weight: bold;">Аэроэкспресс</p>
-        </td>
-        <td style="width: 50%;text-align: right;padding-top: 12px;">
-          <p>
-            {{ aexSum|number_format(2, '.', ' ') }} RUB
-          </p>
-        </td>
-      </tr>
-    {% endif %}
-    {% if promoSum > 0 %}
-      <tr>
-        <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
-          <p style="font-weight: bold;">Скидка по промокоду</p>
-        </td>
-        <td style="width: 50%;text-align: right;padding-top: 12px;">
-          <p>
-            {{ promoSum|number_format(2, '.', ' ') }} RUB
-          </p>
-        </td>
-      </tr>
-    {% endif %}
-    <tr>
-      <td style="width: 50%;margin-top: 12px;padding-top: 12px;">
-        <p style="font-weight: bold;">Итого по заказу</p>
-      </td>
-      <td style="width: 50%;text-align: right;padding-top: 12px;">
-        <p>
-          {{ total|number_format(2, '.', ' ') }} RUB
-        </p>
-      </td>
-    </tr>
     </tbody>
   </table>
 </div>
