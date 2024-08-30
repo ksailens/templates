@@ -44,5 +44,221 @@
     "coefficient": 0.10714285714285714,
     "is_show": false,
     "percent": 12
-  }
+  },
+  "services_by_passengers": [
+    {
+      "key": "GLEBOV_EGOR",
+      "passenger": {
+        "full_name": "GLEBOV EGOR",
+        "birth_date": {
+          "date": "1980-11-22 00:00:00.000000",
+          "timezone_type": 3,
+          "timezone": "Europe/Moscow"
+        }
+      },
+      "items": {
+        "insurances": [
+          {
+            "title": "Пакет на поездку АльфаСтрахование (Динамический тариф для Авиакассы)",
+            "duration": 0,
+            "texts": {
+              "title": "Страхование на время перелёта"
+            }
+          }
+        ],
+        "additional_services": {
+          "ExtraBaggage": [
+            [
+              {
+                "limits": {
+                  "length": 0,
+                  "places": 1,
+                  "weight": 32,
+                  "width": null,
+                  "height": null,
+                  "weight_unit": "KG",
+                  "size_unit": "unknown"
+                },
+                "flight": {
+                  "arrival": "Джанкой",
+                  "departure": "Симферополь"
+                }
+              }
+            ],
+            [
+              {
+                "limits": {
+                  "length": 0,
+                  "places": 1,
+                  "weight": 10,
+                  "width": null,
+                  "height": null,
+                  "weight_unit": "KG",
+                  "size_unit": "unknown"
+                },
+                "flight": {
+                  "arrival": "Сочи Интернешнл",
+                  "departure": "Москва"
+                }
+              }
+            ]
+          ]
+        },
+        "additional_products": [
+          {
+            "type": "FlightChangesNotification",
+            "texts": {
+              "title": "Информирование об изменениях"
+            }
+          },
+          {
+            "type": "FlightChangesNotification",
+            "texts": {
+              "title": "Информирование об изменениях"
+            }
+          }
+        ],
+        "aex": [
+          {
+            "carrier": "Aeroexpress",
+            "service_class": "Стандарт",
+            "arrival_date": {
+              "date": "2025-02-16 00:00:00.000000",
+              "timezone_type": 1,
+              "timezone": "+03:00"
+            },
+            "departure_date": {
+              "date": "2025-02-16 00:00:00.000000",
+              "timezone_type": 1,
+              "timezone": "+03:00"
+            }
+          }
+        ],
+        "low_cost_extra_baggage": [
+          {
+            "limits": {
+              "length": null,
+              "places": 1,
+              "weight": 20,
+              "width": null,
+              "height": null,
+              "weight_unit": null,
+              "size_unit": null
+            },
+            "flight": {
+              "arrival": "Лутон",
+              "departure": "Аэропорт Стамбула"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "GREKOV_PETR",
+      "passenger": {
+        "full_name": "GREKOV PETR",
+        "birth_date": {
+          "date": "2000-05-01 00:00:00.000000",
+          "timezone_type": 3,
+          "timezone": "Europe/Moscow"
+        }
+      },
+      "items": {
+        "insurances": [
+          {
+            "title": "Пакет на поездку АльфаСтрахование (Динамический тариф для Авиакассы)",
+            "duration": 0,
+            "texts": {
+              "title": "Страхование на время перелёта"
+            }
+          }
+        ],
+        "additional_services": {
+          "ExtraBaggage": [
+            [
+              {
+                "limits": {
+                  "length": 32,
+                  "places": 1,
+                  "weight": 32,
+                  "width": 3,
+                  "height": 5,
+                  "weight_unit": "KG",
+                  "size_unit": "unknown"
+                },
+                "flight": {
+                  "arrival": "Питер",
+                  "departure": "Бали"
+                }
+              }
+            ],
+            [
+              {
+                "limits": {
+                  "length": 0,
+                  "places": 1,
+                  "weight": 10,
+                  "width": null,
+                  "height": null,
+                  "weight_unit": "KG",
+                  "size_unit": "unknown"
+                },
+                "flight": {
+                  "arrival": "Рим",
+                  "departure": "Париж"
+                }
+              }
+            ]
+          ]
+        },
+        "additional_products": [
+          {
+            "type": "FlightChangesNotification",
+            "texts": {
+              "title": "Информирование об изменениях"
+            }
+          },
+          {
+            "type": "FlightChangesNotification",
+            "texts": {
+              "title": "Информирование об изменениях"
+            }
+          }
+        ],
+        "aex": [
+          {
+            "carrier": "Aeroexpress",
+            "service_class": "Стандарт",
+            "arrival_date": {
+              "date": "2025-02-16 00:00:00.000000",
+              "timezone_type": 1,
+              "timezone": "+03:00"
+            },
+            "departure_date": {
+              "date": "2025-02-16 00:00:00.000000",
+              "timezone_type": 1,
+              "timezone": "+03:00"
+            }
+          }
+        ],
+        "low_cost_extra_baggage": [
+          {
+            "limits": {
+              "length": null,
+              "places": 2,
+              "weight": 20,
+              "width": null,
+              "height": null,
+              "weight_unit": null,
+              "size_unit": null
+            },
+            "flight": {
+              "arrival": "Лутон",
+              "departure": "Аэропорт Стамбула"
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

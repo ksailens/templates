@@ -234,6 +234,7 @@
 </div>
 {# ------------------ блок сегментов ----------------#}
 {% for flight in flights %}
+  <div style="page-break-inside: avoid;">
   <div style="margin-top: 32px;">
     <p style="font-family:montserrat;font-weight:bold;text-align:left;font-size: 18px;line-height: 26px;">
       {{ flight.departure_city }} &rarr; {{ flight.arrival_city }}
@@ -417,46 +418,47 @@
       </tbody>
     </table>
   </div>
+  </div>
   {#  --------- доп услуги, остановки ---------#}
   <div style="width:100%;display:block;border-bottom: 1px solid #E1E5EF;background-color: #fff;margin-top: 16px;"></div>
-  {#  // доп багаж лоукост#}
-  {% if flight.extraBaggage is defined and flight.extraBaggage is not empty %}
-    <div style="width:100%;display:block;border: 1px solid #E1E5EF;border-top:none;background-color: #fff;">
-      <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
-             border="0" align="left" valign="top">
-        <tbody>
-        <tr>
-          <td style="padding: 16px;width: 50%;">
-            <p>Доп. багаж <span style="color: #808080;">Extra baggage</span></p>
-          </td>
-          <td style="padding: 16px 16px 16px 0;width: 50%;">
-            <p style="text-align: left">{{flight.extraBaggage}}</p>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  {% endif %}
-  {#  // доп багаж миксвелл#}
-  {% if flight.additional_services.extra_baggage is defined and flight.additional_services.extra_baggage is not empty %}
-    {% for bagage in flight.additional_services.extra_baggage %}
-      <div style="width:100%;display:block;border: 1px solid #E1E5EF;border-top:none;background-color: #fff;">
-        <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
-               border="0" align="left" valign="top">
-          <tbody>
-          <tr>
-            <td style="padding: 16px;width: 50%;">
-              <p>Доп. багаж <span style="color: #808080;">Extra baggage</span></p>
-            </td>
-            <td style="padding: 16px 16px 16px 0;width: 50%;">
-              <p style="text-align: left">{{ bagage.weight }}{{bagage.weight_unit}} ({{ bagage.count }} {{ bagage.count == 1 ? 'место/place' : 'места/places' }})</p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    {% endfor %}
-  {% endif %}
+{#  #}{#  // доп багаж лоукост#}
+{#  {% if flight.extraBaggage is defined and flight.extraBaggage is not empty %}#}
+{#    <div style="width:100%;display:block;border: 1px solid #E1E5EF;border-top:none;background-color: #fff;">#}
+{#      <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"#}
+{#             border="0" align="left" valign="top">#}
+{#        <tbody>#}
+{#        <tr>#}
+{#          <td style="padding: 16px;width: 50%;">#}
+{#            <p>Доп. багаж <span style="color: #808080;">Extra baggage</span></p>#}
+{#          </td>#}
+{#          <td style="padding: 16px 16px 16px 0;width: 50%;">#}
+{#            <p style="text-align: left">{{flight.extraBaggage}}</p>#}
+{#          </td>#}
+{#        </tr>#}
+{#        </tbody>#}
+{#      </table>#}
+{#    </div>#}
+{#  {% endif %}#}
+{#  #}{#  // доп багаж миксвелл#}
+{#  {% if flight.additional_services.extra_baggage is defined and flight.additional_services.extra_baggage is not empty %}#}
+{#    {% for bagage in flight.additional_services.extra_baggage %}#}
+{#      <div style="width:100%;display:block;border: 1px solid #E1E5EF;border-top:none;background-color: #fff;">#}
+{#        <table width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"#}
+{#               border="0" align="left" valign="top">#}
+{#          <tbody>#}
+{#          <tr>#}
+{#            <td style="padding: 16px;width: 50%;">#}
+{#              <p>Доп. багаж <span style="color: #808080;">Extra baggage</span></p>#}
+{#            </td>#}
+{#            <td style="padding: 16px 16px 16px 0;width: 50%;">#}
+{#              <p style="text-align: left">{{ bagage.weight }}{{bagage.weight_unit}} ({{ bagage.count }} {{ bagage.count == 1 ? 'место/place' : 'места/places' }})</p>#}
+{#            </td>#}
+{#          </tr>#}
+{#          </tbody>#}
+{#        </table>#}
+{#      </div>#}
+{#    {% endfor %}#}
+{#  {% endif %}#}
   {#  // тех остановки#}
   {% if flight.stops is defined and flight.stops is not empty %}
     <div style="width:100%;display:block;border: 1px solid #E1E5EF;border-top:none;background-color: #fff;">
