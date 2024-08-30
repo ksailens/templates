@@ -134,21 +134,52 @@
               </td>
             </tr>
           {% endif %}
-          {% if passenger.insurances is defined and passenger.insurances is not empty %}
-            {% for insurance in passenger.insurances %}
+          {% if passenger.items.insurances is defined and passenger.items.insurances is not empty %}
+            {% for insurance in passenger.items.insurances %}
               <tr>
                 <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
                   <p style="font-weight: bold;">
-                    Доп.багаж
+                    {{ insurance.title }}
                   </p>
                 </td>
                 <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
                   <p style="font-weight: bold;">
-
+                    {{ insurance.texts.title }}
                   </p>
                 </td>
               </tr>
             {% endfor %}
+          {% endif %}
+          {% if passenger.items.additional_products is defined and passenger.items.additional_products is not empty %}
+            {% for additionalProduct in passenger.items.additional_products %}
+              <tr>
+                <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                  <p style="font-weight: bold;">
+                    {{ additionalProduct.texts.title }}
+                  </p>
+                </td>
+                <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                  <p style="font-weight: bold;">
+                  </p>
+                </td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+          {% if passenger.items.aex is defined and passenger.items.aex is not empty %}
+            <tr>
+              <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                <p style="font-weight: bold;">
+                  Аэроэкспресс
+                </p>
+              </td>
+              <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                {% for one in passenger.items.aex %}
+                  <p style="font-weight: bold;">
+                    {{ one.service_class }}
+                  </p>
+                {% endfor %}
+              </td>
+            </tr>
           {% endif %}
           </tbody>
         </table>
