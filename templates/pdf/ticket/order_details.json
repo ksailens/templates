@@ -102,6 +102,19 @@
                 }
               }
             ]
+          ],
+          "PlaceChoice": [
+            [
+              {
+                "row": 11,
+                "chair": "E",
+                "place_number": "11R",
+                "flight": {
+                  "arrival": "Джанкой",
+                  "departure": "Симферополь"
+                }
+              }
+            ]
           ]
         },
         "additional_products": [

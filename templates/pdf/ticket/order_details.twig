@@ -52,29 +52,70 @@
 {% if services_by_passengers is defined and services_by_passengers is not empty %}
   <div style="margin-top: 32px;margin-bottom: 8px;">
     <p style="font-family:montserrat; font-weight: bold; font-size: 18px;">
-      Детали заказа
+      Дополнительные услуги
     </p>
   </div>
   {% for passenger in services_by_passengers %}
-    <div style="width:100%;display:block;border: 1px solid #E1E5EF;background-color: #fff;margin-top: 16px;">
-      <table class="AdditionalProducts" width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
-             border="0" align="left" valign="top">
-        <tbody>
-        <tr>
-          <td style="width: 50%;background: #EEF0F6;padding-top: 16px;padding-left: 16px;padding-bottom: 16px;">
-            <p style="font-weight: bold;">
-              {{ passenger.passenger.full_name }}
-            </p>
-            <p style="color: #EEF0F6;font-size: 6px;">_</p>
-            <p style="font-weight: bold;color:#808080;">
-              {{ passenger.passenger.birth_date.date|date("d.m.Y") }}
-            </p>
-          </td>
-          <td style="width: 50%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
-          </td>
-        </tr>
-        {% if passenger.items.additional_services is defined and passenger.items.additional_services is not empty %}
-          {% if passenger.items.additional_services.ExtraBaggage is defined and passenger.items.additional_services.ExtraBaggage is not empty %}
+    <div style="page-break-inside: avoid;">
+      <div style="width:100%;display:block;border: 1px solid #E1E5EF;background-color: #fff;margin-top: 16px;">
+        <table class="AdditionalProducts" width="100%" style="border-collapse:collapse;" cellpadding="0" cellspacing="0"
+               border="0" align="left" valign="top">
+          <tbody>
+          <tr>
+            <td style="width: 50%;background: #EEF0F6;padding-top: 16px;padding-left: 16px;padding-bottom: 16px;">
+              <p style="font-weight: bold;">
+                {{ passenger.passenger.full_name }}
+              </p>
+              <p style="color: #EEF0F6;font-size: 6px;">_</p>
+              <p style="font-weight: bold;color:#808080;">
+                {{ passenger.passenger.birth_date.date|date("d.m.Y") }}
+              </p>
+            </td>
+            <td style="width: 50%;background: #EEF0F6;padding-top: 16px;padding-bottom: 16px;">
+            </td>
+          </tr>
+          {% if passenger.items.additional_services is defined and passenger.items.additional_services is not empty %}
+            {% if passenger.items.additional_services.ExtraBaggage is defined and passenger.items.additional_services.ExtraBaggage is not empty %}
+              <tr>
+                <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                  <p style="font-weight: bold;">
+                    Доп.багаж
+                  </p>
+                </td>
+                <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                  {% for ExtraBaggage in passenger.items.additional_services.ExtraBaggage %}
+                    {% for one in ExtraBaggage %}
+                      <p style="font-weight: bold;">
+                        {{ one.flight.departure }} &mdash; {{ one.flight.arrival }}: {{ one.limits.places }}х{{ one.limits.weight }} {{ one.limits.weight_unit|lower == 'kg' ? 'кг' : one.limits.weight_unit }}
+                        {% if one.limits.length and one.limits.width and one.limits.height %}
+                          <span style="color:#808080;">({{ one.limits.length }}х{{ one.limits.width }}х{{ one.limits.height }}см)</span>
+                        {% endif %}
+                      </p>
+                    {% endfor %}
+                  {% endfor %}
+                </td>
+              </tr>
+            {% endif %}
+            {% if passenger.items.additional_services.PlaceChoice is defined and passenger.items.additional_services.PlaceChoice is not empty %}
+              <tr>
+                <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                  <p style="font-weight: bold;">
+                    Выбор места
+                  </p>
+                </td>
+                <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                  {% for PlaceChoice in passenger.items.additional_services.PlaceChoice %}
+                    {% for one in PlaceChoice %}
+                      <p style="font-weight: bold;">
+                        {{ one.flight.departure }} &mdash; {{ one.flight.arrival }}: {{ one.place_number }}
+                      </p>
+                    {% endfor %}
+                  {% endfor %}
+                </td>
+              </tr>
+            {% endif %}
+          {% endif %}
+          {% if passenger.items.low_cost_extra_baggage is defined and passenger.items.low_cost_extra_baggage is not empty %}
             <tr>
               <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
                 <p style="font-weight: bold;">
@@ -82,41 +123,36 @@
                 </p>
               </td>
               <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
-                {% for ExtraBaggage in passenger.items.additional_services.ExtraBaggage %}
-                  {% for one in ExtraBaggage %}
-                    <p style="font-weight: bold;">
-                      {{ one.flight.departure }} &mdash; {{ one.flight.arrival }}: {{ one.limits.places }}х{{ one.limits.weight }} {{ one.limits.weight_unit|lower == 'kg' ? 'кг' : one.limits.weight_unit }}
-                      {% if one.limits.length and one.limits.width and one.limits.height %}
-                        <span style="color:#808080;">({{ one.limits.length }}х{{ one.limits.width }}х{{ one.limits.height }}см)</span>
-                      {% endif %}
-                    </p>
-                  {% endfor %}
+                {% for one in passenger.items.low_cost_extra_baggage %}
+                  <p style="font-weight: bold;">
+                    {{ one.flight.departure }} &mdash; {{ one.flight.arrival }}: {{ one.limits.places }}х{{ one.limits.weight }} {{ one.limits.weight_unit|lower == 'kg' ? 'кг' : one.limits.weight_unit }}
+                    {% if one.limits.length and one.limits.width and one.limits.height %}
+                      <span style="color:#808080;">({{ one.limits.length }}х{{ one.limits.width }}х{{ one.limits.height }}см)</span>
+                    {% endif %}
+                  </p>
                 {% endfor %}
               </td>
             </tr>
           {% endif %}
-        {% endif %}
-        {% if passenger.items.low_cost_extra_baggage is defined and passenger.items.low_cost_extra_baggage is not empty %}
-          <tr>
-            <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
-              <p style="font-weight: bold;">
-                Доп.багаж
-              </p>
-            </td>
-            <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
-              {% for one in passenger.items.low_cost_extra_baggage %}
-                <p style="font-weight: bold;">
-                  {{ one.flight.departure }} &mdash; {{ one.flight.arrival }}: {{ one.limits.places }}х{{ one.limits.weight }} {{ one.limits.weight_unit|lower == 'kg' ? 'кг' : one.limits.weight_unit }}
-                  {% if one.limits.length and one.limits.width and one.limits.height %}
-                    <span style="color:#808080;">({{ one.limits.length }}х{{ one.limits.width }}х{{ one.limits.height }}см)</span>
-                  {% endif %}
-                </p>
-              {% endfor %}
-            </td>
-          </tr>
-        {% endif %}
-        </tbody>
-      </table>
+          {% if passenger.insurances is defined and passenger.insurances is not empty %}
+            {% for insurance in passenger.insurances %}
+              <tr>
+                <td style="padding-left: 16px;padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                  <p style="font-weight: bold;">
+                    Доп.багаж
+                  </p>
+                </td>
+                <td style="padding-top: 16px;padding-bottom: 16px; vertical-align: top;">
+                  <p style="font-weight: bold;">
+
+                  </p>
+                </td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+          </tbody>
+        </table>
+      </div>
     </div>
   {% endfor %}
   <div style="page-break-before: always;"></div>
